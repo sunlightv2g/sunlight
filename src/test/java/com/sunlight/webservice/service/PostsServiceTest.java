@@ -29,12 +29,12 @@ public class PostsServiceTest {
     }
 
     @Test
-    public void Dtoµ¥ÀÌÅÍ°¡_postsÅ×ÀÌºí¿¡_ÀúÀåµÈ´Ù () {
+    public void Dtoë°ì´í„°ê°€_postsí…Œì´ë¸”ì—_ì €ì¥ëœë‹¤ () {
         //given
         PostsSaveRequestDto dto = PostsSaveRequestDto.builder()
                 .author("jojoldu@gmail.com")
-                .content("Å×½ºÆ®")
-                .title("Å×½ºÆ® Å¸ÀÌÆ²")
+                .content("í…ŒìŠ¤íŠ¸")
+                .title("í…ŒìŠ¤íŠ¸ íƒ€ì´í‹€")
                 .build();
 
         //when

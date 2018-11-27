@@ -22,19 +22,19 @@ public class PostsRepositoryTest {
     @After
     public void cleanup() {
         /** 
-        ÀÌÈÄ Å×½ºÆ® ÄÚµå¿¡ ¿µÇâÀ» ³¢Ä¡Áö ¾Ê±â À§ÇØ 
-        Å×½ºÆ® ¸Ş¼Òµå°¡ ³¡³¯¶§ ¸¶´Ù respository ÀüÃ¼ ºñ¿ì´Â ÄÚµå
+        ì´í›„ í…ŒìŠ¤íŠ¸ ì½”ë“œì— ì˜í–¥ì„ ë¼ì¹˜ì§€ ì•Šê¸° ìœ„í•´ 
+        í…ŒìŠ¤íŠ¸ ë©”ì†Œë“œê°€ ëë‚ ë•Œ ë§ˆë‹¤ respository ì „ì²´ ë¹„ìš°ëŠ” ì½”ë“œ
         **/
         postsRepository.deleteAll();
     }
 
     @Test
-    public void °Ô½Ã±ÛÀúÀå_ºÒ·¯¿À±â() {
+    public void ê²Œì‹œê¸€ì €ì¥_ë¶ˆëŸ¬ì˜¤ê¸°() {
         //given
     	LocalDateTime now = LocalDateTime.now();
         postsRepository.save(Posts.builder()
-                .title("Å×½ºÆ® °Ô½Ã±Û")
-                .content("Å×½ºÆ® º»¹®")
+                .title("í…ŒìŠ¤íŠ¸ ê²Œì‹œê¸€")
+                .content("í…ŒìŠ¤íŠ¸ ë³¸ë¬¸")
                 .author("jojoldu@gmail.com")
                 .build());
 

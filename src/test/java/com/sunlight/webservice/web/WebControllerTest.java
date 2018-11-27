@@ -18,11 +18,11 @@ public class WebControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void ¸ŞÀÎÆäÀÌÁö_·Îµù() {
+    public void ë©”ì¸í˜ì´ì§€_ë¡œë”©() {
         //when
         String body = this.restTemplate.getForObject("/", String.class);
 
         //then
-        assertThat(body).contains("½ºÇÁ¸µºÎÆ®·Î ½ÃÀÛÇÏ´Â À¥ ¼­ºñ½º");
+        assertThat(body).contains("ìŠ¤í”„ë§ë¶€íŠ¸ë¡œ ì‹œì‘í•˜ëŠ” ì›¹ ì„œë¹„ìŠ¤");
     }
 }
