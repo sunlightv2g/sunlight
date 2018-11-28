@@ -4,6 +4,7 @@ spring:
 
 # local 환경
 ---
+debug : true
 spring:
   profiles: local
   datasource:
