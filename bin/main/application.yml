@@ -4,6 +4,7 @@ spring:
 
 # local 환경
 ---
+debug : true
 spring:
   profiles: local
   datasource:
@@ -15,3 +16,4 @@ spring:
   h2:
     console:
       enabled: true
+      path: /h2-console
