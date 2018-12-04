@@ -22,9 +22,9 @@ notifications:
       - sunlightv2g@gmail.com
 
 before_deploy:
-  - zip -r springboot-webservice *
+  - zip -r springboot-sunlight *
   - mkdir -p deploy
-  - mv springboot-webservice.zip deploy/springboot-webservice.zip
+  - mv springboot-sunlight.zip deploy/springboot-sunlight.zip
 
 deploy:
   - provider: s3
