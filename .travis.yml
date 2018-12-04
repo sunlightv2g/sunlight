@@ -15,12 +15,6 @@ cache:
 script: "chmod +x gradlew"
 script: "./gradlew clean build"
 
-# CI 실행 완료시 메일로 알람
-notifications:
-  email:
-    recipients:
-      - sunlightv2g@gmail.com
-
 before_deploy:
   - zip -r springboot-sunlight *
   - mkdir -p deploy
@@ -52,3 +46,9 @@ deploy:
     on:
       repo: sunlightv2g/sunlight #Github 주소
       branch: master
+
+# CI 실행 완료시 메일로 알람
+notifications:
+  email:
+    recipients:
+      - sunlightv2g@gmail.com      
