@@ -19,4 +19,10 @@ public class WebController {
     	model.addAttribute("posts", postsService.findAllDesc());
         return "main";
     }
+    
+
+    @GetMapping("/welcome")
+    public String welcome(){
+        return "welcome";
+    }
 }

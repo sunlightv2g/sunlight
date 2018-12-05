@@ -1,3 +1,4 @@
+<%@ page contentType = "text/html;charset=utf-8" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -9,13 +10,11 @@
     <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
 </head>
 <body>
-    <h1>Spring Boot Web Service-0.0.5</h1>
-    <div class="col-md-12 text-right">
+    <h1>스프링부트로 시작하는 웹 서비스-0.0.4</h1>
+    <div class="col-md-12">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#savePostsModal">글 등록</button>
         <br/>
-	</div>
-	<br/>
-	<div class="col-md-12">        
+        <br/>
         <!-- 목록 출력 영역 -->
         <table class="table table-horizontal table-bordered">
             <thead class="thead-strong">
