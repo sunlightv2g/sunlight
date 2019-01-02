@@ -35,7 +35,8 @@ public class PostsMainResponseDto {
     /**
      * Java 7
      */
-    private String toStringDateTimeByJava7(LocalDateTime localDateTime){
+    @SuppressWarnings("unused")
+	private String toStringDateTimeByJava7(LocalDateTime localDateTime){
         if(localDateTime == null){
             return "";
         }

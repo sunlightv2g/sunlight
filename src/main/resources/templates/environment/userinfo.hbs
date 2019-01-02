@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="kr">
+<head>
+{{>include/head}}
+</head>
+ <body>
+{{>include/skipnavi}}
+	<!-- wrapper -->
+	<div id="wrapper">
+		<!-- header  -->
+		<header id="header" class="noprint">
+			{{>include/gnb}}
+			<!-- loaction -->
+			<div class="loaction_bg">
+				<div class="location_area clear">
+					{{>include/location4}}		
+					{{>include/weather}}		
+				</div>
+			</div>
+			<!-- // loaction -->
+		</header>
+		<!-- // header   -->
+		<!-- container -->
+		<div id="container div_page a4" class="page-divide">
+			<section id="content">
+                <!-- 실시간현황 -->
+				{{>include/live}}
+				<!-- 실시간현황 -->
+
+				<!-- 타이틀 -->
+				<h2 class="page_title"><span>사용자정보</span></h2>
+				<!-- 타이틀 -->
+
+                <!-- search area -->
+				<div class="search_area">
+					<table class="tbl_search">
+						<caption>검색조건</caption>
+						<colgroup>
+							<col style="width:15%;">
+							<col>
+							<col style="width:10%;">
+						</colgroup>
+						<tbody>
+							<tr>
+								<td class="tbl_line">
+                                    <select class="w100p">
+										<option value="">전체</option>
+										<option value="">아이디</option>
+										<option value="">이름</option>
+										<option value="">소속</option>
+										<option value="">이메일</option>
+									</select>
+								</td>
+								<td class="tbl_line">
+									<input type="text" class="text w95p" placeholder="검색어를 입력해주세요.">
+								</td>
+                                <td rowspan="2" class="pd_r15">
+									<button type="button" class="btn_search02 btn_small">검색</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- // search area -->
+
+				<!-- tbl -->
+					<div class="tbl_top clear">
+						<div class="tbl_left">
+							<i class="fa fa-file-text-o"></i>
+							<strong>전체 10 </strong>
+							<span>(1/1 page)</span>
+						</div>
+					</div>
+					<div class="table_warp">
+						<table class="tbl_col_type02">
+							<caption>사용자정보 목록</caption>
+							<colgroup>
+								<col style="width:12%;">
+								<col style="width:10%;">
+								<col style="width:10%;">
+								<col style="width:15%;">
+								<col style="width:12%;">
+								<col style="width:12%;">
+								<col>
+								<col style="width:10%;">
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">아이디</th>
+									<th scope="col">이름</th>
+									<th scope="col">역활명</th>
+									<th scope="col">소속</th>
+									<th scope="col">연락처(HP)</th>
+									<th scope="col">연락처(T)</th>
+									<th scope="col">이메일</th>
+									<th scope="col">SNS여부</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>UShe</td>
+									<td>홍길동</td>
+									<td>운영자</td>
+									<td>파워큐브</td>
+									<td>010-123-4567</td>
+									<td>010-123-4567</td>
+									<td>ushe@naver.com</td>
+									<td>Y</td>
+								</tr>
+								<tr>
+									<td>UShe</td>
+									<td>홍길동</td>
+									<td>운영자</td>
+									<td>파워큐브</td>
+									<td>010-123-4567</td>
+									<td>010-123-4567</td>
+									<td>ushe@naver.com</td>
+									<td>N</td>
+								</tr>
+								<tr>
+									<td>UShe</td>
+									<td>홍길동</td>
+									<td>운영자</td>
+									<td>파워큐브</td>
+									<td>010-123-4567</td>
+									<td>010-123-4567</td>
+									<td>ushe@naver.com</td>
+									<td>Y</td>
+								<tr>
+									<td>UShe</td>
+									<td>홍길동</td>
+									<td>운영자</td>
+									<td>파워큐브</td>
+									<td>010-123-4567</td>
+									<td>010-123-4567</td>
+									<td>ushe@naver.com</td>
+									<td>Y</td>
+								</tr>
+								<tr>
+									<td>UShe</td>
+									<td>홍길동</td>
+									<td>운영자</td>
+									<td>파워큐브</td>
+									<td>010-123-4567</td>
+									<td>010-123-4567</td>
+									<td>ushe@naver.com</td>
+									<td>Y</td>
+								</tr>
+								<tr>
+									<td>UShe</td>
+									<td>홍길동</td>
+									<td>운영자</td>
+									<td>파워큐브</td>
+									<td>010-123-4567</td>
+									<td>010-123-4567</td>
+									<td>ushe@naver.com</td>
+									<td>Y</td>
+								</tr>
+								<tr>
+									<td>UShe</td>
+									<td>홍길동</td>
+									<td>운영자</td>
+									<td>파워큐브</td>
+									<td>010-123-4567</td>
+									<td>010-123-4567</td>
+									<td>ushe@naver.com</td>
+									<td>Y</td>
+								</tr>
+								<tr>
+									<td>UShe</td>
+									<td>홍길동</td>
+									<td>운영자</td>
+									<td>파워큐브</td>
+									<td>010-123-4567</td>
+									<td>010-123-4567</td>
+									<td>ushe@naver.com</td>
+									<td>Y</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- // tbl -->
+					<!-- paging -->
+					<div class="paging_wrap">
+					    <div class="paging">
+					        <a href="#" class="btn_page first">목록 처음으로 이동</a>
+					        <a href="#" class="btn_page prev">이전 페이지로 이동</a>
+					        <strong class="page_num">1</strong>
+					        <a href="#">2</a>
+					        <a href="#">3</a>
+					        <a href="#">4</a>
+					        <a href="#">5</a>
+					        <a href="#" class="btn_page next">다음 페이지로 이동</a>
+					        <a href="#" class="btn_page last">목록 마지막으로 이동</a>
+					    </div>
+					</div>
+					<!-- //paging -->
+
+                
+			</section>
+		</div>
+		<!--// container -->
+		<!-- footer -->
+		{{>include/footer}}
+		<!--// footer -->
+	</div>
+	<!--// wrapper -->
+</body>
+</html>

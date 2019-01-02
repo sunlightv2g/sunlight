@@ -1,0 +1,31 @@
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>태양광시설관리 시스템</title>
+	<link rel="stylesheet" type="text/css" href="/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui-1.12.1.custom.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+	<script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui-1.12.1.custom.js"></script>
+	<script type="text/javascript" src="/js/highcharts.js"></script>
+    <script type="text/javascript" src="/js/exporting.js"></script>
+    <script type="text/javascript" >
+        $(function() {
+            var dates = $( "#from1, #to1" ).datepicker({
+                changeMonth: true,
+                changeYear: true,
+                showOn: "button",
+                buttonImage: "/images/sub/icon_calendar.gif",
+                buttonImageOnly: true,
+                onSelect: function( selectedDate ) {
+                    var option = this.id == "from1" ? "minDate" : "maxDate",
+                    instance = $( this ).data( "datepicker" ),
+                    date = $.datepicker.parseDate(
+                        instance.settings.dateFormat ||
+                        $.datepicker._defaults.dateFormat,
+                        selectedDate, instance.settings );
+                    dates.not( this ).datepicker( "option", option, date );
+                }
+            });
+        });
+    </script>

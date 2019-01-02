@@ -25,4 +25,31 @@ public class WebController {
     public String welcome(){
         return "welcome";
     }
+    
+    @GetMapping("/monitoring/livemonitoring")
+    public String livemonitoring(){
+    	return "monitoring/livemonitoring";
+    }
+    
+    @GetMapping("/maintenance/eventmanage")
+    public String eventmanage(){
+    	return "maintenance/eventmanage";
+    }
+    
+    @GetMapping("/environment/routineinspection")
+    public String routineinspection(){
+    	return "environment/routineinspection";
+    }
+    
+    @GetMapping("/environment/equipmentinfo")
+    public String equipmentinfo(){
+    	return "environment/equipmentinfo";
+    }
+    
+    @GetMapping("/environment/userinfo")
+    public String userinfo(){
+        return "environment/userinfo";
+    }
+    
+    
 }

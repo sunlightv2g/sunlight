@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="kr">
+<head>
+{{>include/head}}
+</head>
+ <body>
+ {{>include/skipnavi}} 
+	<!-- wrapper -->
+	<div id="wrapper">
+		<!-- header  -->
+		<header id="header" class="noprint">
+			{{>include/gnb}}
+			<!-- loaction -->
+			<div class="loaction_bg">
+				<div class="location_area clear">
+					{{>include/location3}}		
+					{{>include/weather}}		
+				</div>
+			</div>
+			<!-- // loaction -->
+		</header>
+		<!-- // header   -->
+		<!-- container -->
+		<div id="container div_page a4" class="page-divide">
+			<section id="content">
+                <!-- 실시간현황 -->
+				{{>include/live}}
+				<!-- 실시간현황 -->
+
+				<!-- 타이틀 -->
+				<h2 class="page_title"><span>이벤트관리</span></h2>
+				<!-- 타이틀 -->
+
+                <!-- search area -->
+				<div class="search_area">
+					<table class="tbl_search">
+						<caption>검색조건</caption>
+						<colgroup>
+							<col style="width:60%">
+                            <col style="width:40%;">
+						</colgroup>
+						<tbody>
+							<tr>
+								<td style="text-align:right">
+                                    기간  <span class="calendar_input"><input type="text" id="from1" class="text w78p"/></span> ~ <span class="calendar_input" ><input type="text" id="to1" class="text w78p" /></span>
+								</td>
+                                <td class="pd_r30">
+									<button type="button" class="btn_search02 btn_small">검색</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- // search area -->
+
+				<!-- tbl -->
+					<div class="tbl_top clear">
+						<div class="tbl_left">
+							<i class="fa fa-file-text-o"></i>
+							<strong>전체 10 </strong>
+							<span>(1/1 page)</span>
+						</div>
+					</div>
+					<div class="table_warp">
+						<table class="tbl_col_type02">
+							<caption>이벤트관리 목록</caption>
+							<colgroup>
+								<col style="width:20%;">
+								<col style="width:20%;">
+								<col>
+								<col style="width:12%;">
+								<col style="width:12%;">
+								<col style="width:12%;">
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">발생일시</th>
+									<th scope="col">회복일시</th>
+									<th scope="col">설비명</th>
+									<th scope="col">발생원</th>
+									<th scope="col">초치내역</th>
+									<th scope="col">조치자</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>2018.11.02 12:40:30</td>
+									<td>2018.11.02 12:45:45</td>
+									<td>문백보건지소_계량기_통신</td>
+									<td>모뎀이상</td>
+									<td>장비교체</td>
+									<td>홍길동</td>
+								</tr>
+								<tr>
+									<td>2018.11.02 12:40:30</td>
+									<td>2018.11.02 12:45:45</td>
+									<td>광혜원보건지소_계량기_통신</td>
+									<td>통신이상</td>
+									<td>현장리셋</td>
+									<td>김유신</td>
+								</tr>
+								<tr>
+									<td>2018.11.02 12:40:30</td>
+									<td>2018.11.02 12:45:45</td>
+									<td>광혜원보건지소_센서_계측</td>
+									<td>센서불량</td>
+									<td>센서교체</td>
+									<td>김유신</td>
+								</tr>
+								<tr>
+									<td>2018.11.11 20:40:30</td>
+									<td>2018.11.12 12:12:04</td>
+									<td>서울에너지공사_모뎀_계측</td>
+									<td>모뎀불량</td>
+									<td>모뎀교체</td>
+									<td>홍길동</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- // tbl -->
+					<!-- paging -->
+					<div class="paging_wrap">
+					    <div class="paging">
+					        <a href="#" class="btn_page first">목록 처음으로 이동</a>
+					        <a href="#" class="btn_page prev">이전 페이지로 이동</a>
+					        <strong class="page_num">1</strong>
+					        <a href="#">2</a>
+					        <a href="#">3</a>
+					        <a href="#">4</a>
+					        <a href="#">5</a>
+					        <a href="#" class="btn_page next">다음 페이지로 이동</a>
+					        <a href="#" class="btn_page last">목록 마지막으로 이동</a>
+					    </div>
+					</div>
+					<!-- //paging -->
+
+                
+			</section>
+		</div>
+		<!--// container -->
+		<!-- footer -->
+		{{>include/footer}}
+		<!--// footer -->
+	</div>
+	<!--// wrapper -->
+</body>
+</html>
