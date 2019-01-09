@@ -45,27 +45,27 @@
 						<tbody>
 							<tr>
 								<td class="tbl_line">
-                                    <select class="w100p">
-										<option value="">설비명</option>
-										<option value="">계량기</option>
-										<option value="">모뎀</option>
+                                    <select class="w100p" id="searchFirst">
+										<option value="all" {{#eq search.searchFirst "all"}}selected{{/eq}}>전체</option>
+										<option value="계량기" {{#eq search.searchFirst "계량기"}}selected{{/eq}}>계량기</option>
+										<option value="모뎀" {{#eq search.searchFirst "모뎀"}}selected{{/eq}}>모뎀</option>
 									</select>
 								</td>
 								<td class="tbl_line">
-									<select class="w100p">
-										<option value="">전체</option>
-										<option value="">모델명</option>
-										<option value="">제조사</option>
+									<select class="w100p" id="searchSecond">
+										<option value="all" {{#eq search.searchSecond "all"}}selected{{/eq}}>전체</option>
+										<option value="model" {{#eq search.searchSecond "model"}}selected{{/eq}}>모델명</option>
+										<option value="madeby" {{#eq search.searchSecond "madeby"}}selected{{/eq}}>제조사</option>
 									</select>
 								</td>
 								<td class="tbl_line">
-									<input type="text" class="text w95p" placeholder="검색어를 입력해주세요.">
+									<input type="text" id="searchStr" maxlength="50" value="{{search.searchStr}}" class="text w95p" placeholder="검색어를 입력해주세요.">
 								</td>
                                 <td class="tbl_line">
-                                   설치일 <span class="calendar_input"><input type="text" id="from1" class="text w78p"/></span>
+                                   설치일 <span class="calendar_input"><input type="text" id="from1" value="{{search.searchDate}}" class="text w78p"/></span>
                                 </td>
                                 <td rowspan="2" class="pd_r15">
-									<button type="button" class="btn_search02 btn_small">검색</button>
+									<button type="button" onclick="goPage(0); return false;"  class="btn_search02 btn_small">검색</button>
 								</td>
 							</tr>
 						</tbody>
@@ -77,8 +77,8 @@
 					<div class="tbl_top clear">
 						<div class="tbl_left">
 							<i class="fa fa-file-text-o"></i>
-							<strong>전체 10 </strong>
-							<span>(1/1 page)</span>
+							<strong>전체 {{formatNumber totlalCount}} </strong>
+							<span>({{currentPage}}/{{totlalPageCount}} page)</span>
 						</div>
 					</div>
 					<div class="table_warp">
@@ -103,91 +103,28 @@
 								</tr>
 							</thead>
 							<tbody>
+							{{#each dataList}}
 								<tr>
-									<td>계량기</td>
-									<td>LTE-M모듈/LPWAN 복합모듈</td>
-									<td>파워큐브</td>
-									<td>충북 진천군 문백면 옥성리 312-1</td>
-									<td>2018.06.15</td>
-									<td></td>
+									<td>{{equipment}}</td>
+									<td>{{model}}</td>
+									<td>{{madeby}}</td>
+									<td>{{installaddr}}</td>
+									<td>{{installdate}}</td>
+									<td>{{remark}}</td>
 								</tr>
+							{{/each}}
+							{{#eqLong totlalCount 0}}
 								<tr>
-									<td>계량기</td>
-									<td>LTE-M모듈/LPWAN 복합모듈</td>
-									<td>파워큐브</td>
-									<td>1충북 진천군 문백면 옥성리 312-1</td>
-									<td>2018.06.15</td>
-									<td></td>
+									<td colspan="6">등록/검색된 결과가 없습니다.</td>
 								</tr>
-								<tr>
-									<td>계량기</td>
-									<td>LTE-M모듈/LPWAN 복합모듈</td>
-									<td>파워큐브</td>
-									<td>충북 진천군 문백면 옥성리 312-1</td>
-									<td>2018.06.15</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>계량기</td>
-									<td>LTE-M모듈/LPWAN 복합모듈</td>
-									<td>파워큐브</td>
-									<td>충북 진천군 문백면 옥성리 312-1</td>
-									<td>2018.06.15</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>계량기</td>
-									<td>LTE-M모듈/LPWAN 복합모듈</td>
-									<td>파워큐브</td>
-									<td>충북 진천군 문백면 옥성리 312-1</td>
-									<td>2018.06.15</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>계량기</td>
-									<td>LTE-M모듈/LPWAN 복합모듈</td>
-									<td>파워큐브</td>
-									<td>충북 진천군 문백면 옥성리 312-1</td>
-									<td>2018.06.15</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>계량기</td>
-									<td>LTE-M모듈/LPWAN 복합모듈</td>
-									<td>파워큐브</td>
-									<td>충북 진천군 문백면 옥성리 312-1</td>
-									<td>2018.06.15</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>계량기</td>
-									<td>LTE-M모듈/LPWAN 복합모듈</td>
-									<td>파워큐브</td>
-									<td>충북 진천군 문백면 옥성리 312-1</td>
-									<td>2018.06.15</td>
-									<td></td>
-								</tr>
+							{{/eqLong}}	
 							</tbody>
 						</table>
 					</div>
 					<!-- // tbl -->
 					<!-- paging -->
-					<div class="paging_wrap">
-					    <div class="paging">
-					        <a href="#" class="btn_page first">목록 처음으로 이동</a>
-					        <a href="#" class="btn_page prev">이전 페이지로 이동</a>
-					        <strong class="page_num">1</strong>
-					        <a href="#">2</a>
-					        <a href="#">3</a>
-					        <a href="#">4</a>
-					        <a href="#">5</a>
-					        <a href="#" class="btn_page next">다음 페이지로 이동</a>
-					        <a href="#" class="btn_page last">목록 마지막으로 이동</a>
-					    </div>
-					</div>
+					{{>include/pagination}}
 					<!-- //paging -->
-
-                
 			</section>
 		</div>
 		<!--// container -->
@@ -196,5 +133,8 @@
 		<!--// footer -->
 	</div>
 	<!--// wrapper -->
+	<!--custom js 추가-->
+    <script src="/js/app/environment/equipmentinfo.js"></script>
+    <!--//custom js-->	
 </body>
 </html>

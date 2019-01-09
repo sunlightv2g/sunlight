@@ -8,10 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.sunlight.webservice.dto.environment.equipmentinfo.EquipmentinfoMainResponseDto;
+import com.sunlight.webservice.dto.environment.equipmentinfo.EquipmentinfoSearchRequestDto;
 import com.sunlight.webservice.dto.environment.routine.RoutinecheckMainResponseDto;
 import com.sunlight.webservice.dto.environment.routine.RoutinecheckSearchRequestDto;
 import com.sunlight.webservice.dto.environment.userinfo.UserinfoMainResponseDto;
 import com.sunlight.webservice.dto.environment.userinfo.UserinfoSearchRequestDto;
+import com.sunlight.webservice.service.environment.EquipmentinfoService;
 import com.sunlight.webservice.service.environment.RoutinecheckService;
 import com.sunlight.webservice.service.environment.UserinfoService;
 import com.sunlight.webservice.service.posts.PostsService;
@@ -25,6 +28,7 @@ public class WebController {
 	private PostsService postsService;
 	private RoutinecheckService routineCheckService;
 	private UserinfoService userinfoService;
+	private EquipmentinfoService equipmentinfoService;
 	
     @GetMapping("/")
     public String main(Model model) {
@@ -81,9 +85,21 @@ public class WebController {
     }
 
     @GetMapping("/environment/equipmentinfo")
-    public String equipmentinfo(){
+    public String equipmentinfo(Model model, EquipmentinfoSearchRequestDto equipmentinfoSearchResponseDto, @PageableDefault(sort = { "id" }, direction = Direction.DESC, page=0, size = 10) Pageable pageable){
+    	
+    	Page<EquipmentinfoMainResponseDto> equipmentinfoMainResponseDto = equipmentinfoService.getEquipmentinfoListByQueryDSL(equipmentinfoSearchResponseDto, pageable);
+    	
+    	model.addAttribute("search", equipmentinfoSearchResponseDto);
+    	model.addAttribute("dataList", equipmentinfoMainResponseDto);
+    	
+    	model.addAttribute("currentPage", pageable.getPageNumber()+1);
+    	model.addAttribute("countPerPageGroup",pageable.getPageSize());
+    	model.addAttribute("totlalCount", equipmentinfoMainResponseDto.getTotalElements());
+    	model.addAttribute("totlalPageCount", equipmentinfoMainResponseDto.getTotalPages());
+    	
     	return "environment/equipmentinfo";
     }
+    
     
     @GetMapping("/environment/login")
     public String login(){

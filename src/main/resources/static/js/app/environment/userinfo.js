@@ -31,8 +31,8 @@ var routinecheck = {
 routinecheck.init();
 
 function goPage(page) {
-	 var searchFlag = $('#searchFlag').val();
-	 var searchStr = $('#searchStr').val();
+	 var searchFlag = $('#searchFlag').val().trim();
+	 var searchStr = $('#searchStr').val().trim();
 	 top.location.href = _uri + "?page=" + page + "&searchFlag=" + searchFlag + "&searchStr=" + searchStr;
 }
 

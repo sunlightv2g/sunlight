@@ -38,7 +38,7 @@ var routinecheck = {
 routinecheck.init();
 
 function goPage(page) {
-	 var startDate = $('#from1').val();
-	 var endDate = $('#to1').val();
+	 var startDate = $('#from1').val().trim();
+	 var endDate = $('#to1').val().trim();
 	 top.location.href = _uri + "?page=" + page + "&startDate=" + startDate + "&endDate=" + endDate;
 }
