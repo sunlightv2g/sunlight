@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="kr">
+<head>
+{{>include/head}}
+</head>
+ <body>
+{{>include/skipnavi}}
+	<!-- wrapper -->
+	<div id="wrapper">
+		<!-- header  -->
+		<header id="header" class="noprint">
+			{{>include/gnb}}
+			<!-- loaction -->
+			<div class="loaction_bg">
+				<div class="location_area clear">
+					{{>include/location4}}		
+					{{>include/weather}}		
+				</div>
+			</div>
+			<!-- // loaction -->
+		</header>
+		<!-- // header   -->
+		<!-- container -->
+		<div id="container div_page a4" class="page-divide">
+			<section id="content">
+                <!-- 실시간현황 -->
+				{{>include/live}}
+				<!-- 실시간현황 -->
+				<!-- 타이틀 -->
+				<h2 class="page_title"><span>로그인</span></h2>
+				<!-- 타이틀 -->
+
+				<div class="login_wrap">
+					<h1></h1>
+					<div class="login_box1">
+						<div class="login">
+							<fieldset>
+								<legend>로그인폼</legend>
+								<div class="login_input">
+									<ul>
+										<li><input type="text" id="loginid" maxlength="50" title="아이디를 입력하세요" placeholder="ID" class="text" /></li>
+										<li><input type="password"  id="loginpass" maxlength="50"  title="비밀번호를 입력하세요" placeholder="PW" class="text" /></li>
+									</ul>
+									<button type="button" id="btn_login" class="btn_login1">로그인</button>
+								</div>
+								<div class="id_save">
+										<!-- <label><input type="checkbox" class="check"/> 아이디 저장</label> -->
+								</div>
+							</fieldset>
+							<div class="login_link">
+								<ul>
+									<li>아직 회원이 아니신가요? <a href="#" onclick="view_show(2,'join'); return false;" class="btn_link">회원가입</a></li>
+									<!-- <li>아이디 또는 비밀번호를 분실하셨나요? <a href="#" class="btn_link">아이디/비밀번호 찾기</a></li> -->
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+                
+			</section>
+		</div>
+		<!--// container -->
+				
+		<!-- footer -->
+		{{>include/footer}}
+		<!--// footer -->
+	</div>
+	<!--// wrapper -->
+	<!--custom js 추가-->
+    <script src="/js/app/environment/login.js"></script>
+    <!--//custom js-->
+</body>
+</html>

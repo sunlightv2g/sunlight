@@ -1,9 +1,11 @@
-package com.sunlight.webservice.domain;
+package com.sunlight.webservice.domain.posts;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import com.sunlight.webservice.domain.BaseTimeEntity;
 
 import lombok.AccessLevel;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package com.sunlight.webservice.service;
+package com.sunlight.webservice.service.posts;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sunlight.webservice.domain.PostsRepository;
+import com.sunlight.webservice.domain.posts.PostsRepository;
 import com.sunlight.webservice.dto.posts.PostsMainResponseDto;
 import com.sunlight.webservice.dto.posts.PostsSaveRequestDto;
 

@@ -5,3 +5,100 @@
 				</div>
 			</div>
 		</div>
+<!-- 회원가입 등록 -->
+<div id="dispay_view2" class="popup js-popup">
+	<div class="pop_header">
+		<h1 class="pop_tit">회원가입</h1>
+		<a href="#" onclick="view_hide(2,'join'); return false;" class="pop_close"></a>
+	</div>
+	<div class="pop_content">
+		
+		<!-- tbl -->
+		<div class="table_warp mar_t20">
+			<table class="tbl_row_type01">
+				<caption>내용(제목, 작성자, 작성일 등으로 구성)</caption>
+				<colgroup>
+					<col style="width:15%;">
+					<col style="width:35%;">
+					<col style="width:15%;">
+					<col >
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row">아이디</th>
+						<td colspan="3">
+							<input type="hidden" id="id" maxlength="50" class="text w55p" />
+							<input type="text" id="userid" onchange="setChk();" maxlength="50" class="text w55p" placeholder="아이디를 입력하세요" />
+							<input type="hidden" id="useridchk" maxlength="50" class="text w55p" />
+							<button type="button" id="btnUseridChk" onclick="checkId(); return false;" class="btn_id">중복확인</button>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">비밀번호</th>
+						<td colspan="3">
+							<input type="password" id="userpass" maxlength="50" class="text w95p" placeholder="비밀번호를 입력하세요" />
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">비밀번호 재확인</th>
+						<td colspan="3">
+							<input type="password" id="userpassre" maxlength="50" class="text w95p" placeholder="비밀번호 재확인을 입력하세요" />
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">이름</th>
+						<td colspan="3">
+							<input type="text" id="username" maxlength="50" class="text w95p" placeholder="이름을 입력하세요" />
+						</td>
+					</tr>
+					<tr id="divUserRole" style="display:none">
+						<th scope="row">역할</th>
+						<td colspan="3">
+							<input type="text" id="userrole" maxlength="50" class="text w95p" placeholder="역할을 입력하세요" />
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">소속</th>
+						<td colspan="3">
+							<input type="text" id="userpart" maxlength="50" class="text w95p" placeholder="소속을 입력하세요" />
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">연락처 HP</th>
+						<td colspan="3">
+							<input type="text" id="userhp" maxlength="50" class="text w95p" placeholder="연락처 HP를 입력하세요" />
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">연락처 T</th>
+						<td colspan="3">
+							<input type="text" id="usertel" maxlength="50" class="text w95p" placeholder="연럭처 T 입력하세요" />
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">이메일</th>
+						<td colspan="3">
+							<input type="text" id="useremail" maxlength="50" class="text w95p" placeholder="이메일을 입력하세요" />
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">SMS여부</th>
+						<td colspan="3">
+							<input type="radio" name="usersms" id="usersms" value="Y">YES <input type="radio" name="usersms" id="usersms" value="N" checked>NO
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- // tbl -->
+		<div class="mar_t20 pop_footer">
+			<a href="#" onclick="regsit(); return false;" id="btnMemberRegist" style="display:none" class="btn btn_w155 btn_sky">적용</a>
+			<a href="#" onclick="edit(); return false;" id="btnMemberEdit" style="display:none" class="btn btn_w155 btn_sky">수정</a>
+			<a href="#" onclick="view_hide(2,'join'); return false;" class="btn btn_w155 btn_gray02">취소</a>
+		</div>
+
+	</div>
+
+</div>
+<div class="popup_bg" id="js-popup-bg"></div>
+<!-- // 회원가입 등록 -->		

@@ -1,0 +1,29 @@
+<!--pagination param ==> currentPage:{{param.currentPage}} totalPageCount:{{param.totlalPageCount}} countPerPageGroup:{{param.countPerPageGroup}}-->
+{{#pagination this currentPage totlalPageCount countPerPageGroup}}
+<div class="paging_wrap">
+    <div class="paging">
+    	{{#if canGoPrevious}}
+        <a href="#" class="btn_page first" title="1" onclick="goPage(0); return false;">목록 처음으로 이동</a>
+        <a href="#" class="btn_page prev" title="{{previousIdx}}" onclick="goPage({{previousIdx}}-1); return false;">이전 페이지로 이동</a>
+        {{else}}
+        <a class="btn_page first">목록 처음으로 이동</a>
+        <a class="btn_page prev">이전 페이지로 이동</a>
+        {{/if}}
+        {{#each pages}}
+        	{{#if isCurrent}}
+        		<strong class="page_num" title="{{page}}">{{page}}</strong>	
+        	{{else}}
+        		<a href="#" title="{{page}}" onclick="goPage({{page}}-1); return false;">{{page}}</a>	
+        	{{/if}}
+        
+        {{/each}} 
+        {{#if canGoNext}}
+        <a href="#" class="btn_page next" title='{{nextIdx}}' onclick="goPage({{nextIdx}}-1); return false;">다음 페이지로 이동</a>
+        <a href="#" class="btn_page last" title="{{totlalPageCount}}" onclick="goPage({{totlalPageCount}}-1); return false;">목록 마지막으로 이동</a>
+        {{else}}
+        <a class="btn_page next">다음 페이지로 이동</a>
+        <a class="btn_page last">목록 마지막으로 이동</a>
+        {{/if}}
+    </div>
+</div>
+{{/pagination}}

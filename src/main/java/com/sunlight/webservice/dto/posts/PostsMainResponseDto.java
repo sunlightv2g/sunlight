@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
-import com.sunlight.webservice.domain.Posts;
+import com.sunlight.webservice.domain.posts.Posts;
 
 import lombok.Getter;
 

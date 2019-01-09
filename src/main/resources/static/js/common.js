@@ -147,22 +147,61 @@ jQuery(function($){
 });
 
 //popup
-function view_show(num) {
+function view_show(num,flag,that) {
     $("body").addClass("ofHidden"); // css로 body 스크롤 없애기
     var left = (( $(window).width() - $("#dispay_view"+num).width()) / 2 );
     var top = (( $(window).height() - $("#dispay_view"+num).height()) / 2 );
     $("#dispay_view"+num).css({'left':left,'top':top, 'position':'fixed'});
     document.getElementById("dispay_view"+num).style.display = "block";
     document.getElementById("js-popup-bg").style.display = "block";
+    if(flag == "join"){
+  	  $('#divUserRole').hide();
+  	  $('#btnMemberRegist').show();
+  	  $('#btnMemberEdit').hide();
+  	  $('#btnUseridChk').show();
+  	  
+	  $('#id').val("");
+	  $('#userid').val("");
+	  $('#username').val("");
+	  $('#userrole').val("");
+	  $('#userpart').val(""); 
+	  $('#userhp').val("");
+	  $('#usertel').val("");
+	  $('#useremail').val("");
+	  $('#usersms').val("");
+	  
+    }else if(flag == "edit"){
+      $('#divUserRole').show();
+	  $('#btnMemberRegist').hide();
+	  $('#btnMemberEdit').show();
+	  $('#btnUseridChk').hide();
+	  
+	  var td = that.children;
+	  $('#id').val(td[0].textContent);
+	  $('#userid').val(td[1].textContent);
+	  $('#username').val(td[2].textContent);
+	  $('#userrole').val(td[3].textContent);
+	  $('#userpart').val(td[4].textContent); 
+	  $('#userhp').val(td[5].textContent);
+	  $('#usertel').val(td[6].textContent);
+	  $('#useremail').val(td[7].textContent);
+	  $(this).prop('checked', false);
+	  if(td[8].textContent == "Y"){
+		  $("input:radio[name='usersms']:radio[value='Y']").prop('checked', true); // 선택하기  
+	  }else{
+		  $("input:radio[name='usersms']:radio[value='N']").prop('checked', true); // 선택하기
+	  }
+	  
+    }
     return false;
  }
-function view_hide(num) {
+function view_hide(num,flag) {
   $("body").removeClass("ofHidden");
   document.getElementById("dispay_view"+num).style.display = "none";
   document.getElementById("js-popup-bg").style.display = "none";
   return false;
 }
- 
+
 $(function(){
     $('#js-popup-bg').click(function(){
         $("body").removeClass("ofHidden");
@@ -181,3 +220,184 @@ $(function(){
     })
 });
 
+$(function() {
+    var dates = $( "#from1, #to1" ).datepicker({
+        changeMonth: true,
+        changeYear: true,
+        showOn: "button",
+        buttonImage: "/images/sub/icon_calendar.gif",
+        buttonImageOnly: true,
+        onSelect: function( selectedDate ) {
+            var option = this.id == "from1" ? "minDate" : "maxDate",
+            instance = $( this ).data( "datepicker" ),
+            date = $.datepicker.parseDate(
+                instance.settings.dateFormat ||
+                $.datepicker._defaults.dateFormat,
+                selectedDate, instance.settings );
+            dates.not( this ).datepicker( "option", option, date );
+        }
+    });
+});
+
+var _uri;
+_uri = document.location.href.split("?")[0];
+
+function setChk(){
+	$('#useridchk').val("");
+}
+
+function checkId(){
+	if($('#userid').val().trim() == ""){
+		alert("아이디를 입력해주세요.");
+		$('#userid').val("");
+		$('#userid').focus();
+		return false;
+	}
+	var data = {
+			userid: $('#userid').val()
+    	};
+
+    $.ajax({
+        type: 'POST',
+        url: "/environment/useridchk",
+        dataType: 'text',
+        contentType:'application/json; charset=utf-8',
+        data: JSON.stringify(data)
+    }).done(function(data) {
+    	if(data > 0){
+    		alert("이미 사용중인 아이디 입니다.");
+    		setChk();
+    	}else{
+    		alert("사용 가능한 아이디 입니다.");
+    		$('#useridchk').val("Y");
+    	}
+    }).fail(function (error) {
+    	alert(error);
+    });
+}
+
+function regsit(){
+	
+	if($('#userid').val().trim() == ""){
+		alert("아이디를 입력해주세요.");
+		$('#userid').val("");
+		$('#userid').focus();
+		return false;
+	}
+	if($('#userpass').val().trim() == ""){
+		alert("비밀번호를 입력해주세요.");
+		$('#userpass').val("");
+		$('#userpass').focus();
+		return false;
+	}
+	if($('#userpassre').val().trim() == ""){
+		alert("비밀번호 재확인을 입력해주세요.");
+		$('#userpassre').val("");
+		$('#userpassre').focus();
+		return false;
+	}
+	if($('#userpass').val().trim() != $('#userpassre').val().trim()){
+		alert("비밀번호가 다릅니다. 다시 입력해주세요.");
+		$('#userpassre').val("");
+		$('#userpassre').focus();
+		return false;
+	}
+	if($('#username').val().trim() == ""){
+		alert("이름을 입력해주세요.");
+		$('#username').val("");
+		$('#username').focus();
+		return false;
+	}
+	
+	if($('#useridchk').val().trim() == ""){
+		alert("아이디 중복체크를 해주세요.");
+		$('#userid').focus();
+		return false;
+	}
+	
+	var data = {
+			userid: $('#userid').val(),
+			userpass: $('#userpass').val(),
+			username: $('#username').val(),
+			userrole: $('#userrole').val(),
+			userpart: $('#userpart').val(),
+			userhp: $('#userhp').val(),
+			usertel: $('#usertel').val(),
+			useremail: $('#useremail').val(),
+			usersms: $('input[name="usersms"]:checked').val()
+    	};
+
+    $.ajax({
+        type: 'POST',
+        url: "/environment/userinfo",
+        dataType: 'text',
+        contentType:'application/json; charset=utf-8',
+        data: JSON.stringify(data)
+    }).done(function() {
+        alert('등록되었습니다.');
+        top.location.href=_uri;
+        //routinecheck.list();
+    }).fail(function (error) {
+        alert(error);
+    });
+	
+}
+
+function edit(){
+	
+	if($('#userid').val().trim() == ""){
+		alert("아이디를 입력해주세요.");
+		$('#userid').val("");
+		$('#userid').focus();
+		return false;
+	}
+	if($('#username').val().trim() == ""){
+		alert("이름을 입력해주세요.");
+		$('#username').val("");
+		$('#username').focus();
+		return false;
+	}
+	
+	var data = {
+			id: $('#id').val(),
+			userid: $('#userid').val(),
+			userpass: $('#userpass').val(),
+			username: $('#username').val(),
+			userrole: $('#userrole').val(),
+			userpart: $('#userpart').val(),
+			userhp: $('#userhp').val(),
+			usertel: $('#usertel').val(),
+			useremail: $('#useremail').val(),
+			usersms: $('input[name="usersms"]:checked').val()
+	};
+	
+	$.ajax({
+		type: 'PUT',
+		url: "/environment/userinfo",
+		dataType: 'text',
+		contentType:'application/json; charset=utf-8',
+		data: JSON.stringify(data)
+	}).done(function() {
+		alert('등록되었습니다.');
+		top.location.href=_uri;
+		//routinecheck.list();
+	}).fail(function (error) {
+		alert(error);
+	});
+	
+}
+
+function logout(){
+	$.ajax({
+		type: 'POST',
+		url: "/environment/userlogout",
+		dataType: 'text',
+		contentType:'application/json; charset=utf-8',
+	}).done(function(data) {
+		//alert(data);
+		location.reload();
+	}).fail(function (error) {
+		alert(error);
+	});
+	
+}

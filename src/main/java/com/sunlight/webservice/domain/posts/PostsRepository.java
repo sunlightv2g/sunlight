@@ -1,4 +1,4 @@
-package com.sunlight.webservice.domain;
+package com.sunlight.webservice.domain.posts;
 
 import java.util.stream.Stream;
 

@@ -1,6 +1,6 @@
 package com.sunlight.webservice.dto.posts;
 
-import com.sunlight.webservice.domain.Posts;
+import com.sunlight.webservice.domain.posts.Posts;
 
 import lombok.Builder;
 import lombok.Getter;

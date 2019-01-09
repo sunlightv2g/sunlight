@@ -9,9 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.sunlight.webservice.domain.Posts;
-import com.sunlight.webservice.domain.PostsRepository;
+import com.sunlight.webservice.domain.posts.Posts;
+import com.sunlight.webservice.domain.posts.PostsRepository;
 import com.sunlight.webservice.dto.posts.PostsSaveRequestDto;
+import com.sunlight.webservice.service.posts.PostsService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

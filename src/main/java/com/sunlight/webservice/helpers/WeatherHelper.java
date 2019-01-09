@@ -70,7 +70,6 @@ public class WeatherHelper {
         rd.close();
         conn.disconnect();
         String result = sb.toString();
-//        System.out.println(sb.toString());
 		
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
@@ -92,9 +91,6 @@ public class WeatherHelper {
         NodeList nodeList = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
         for (int i = 0; i < nodeList.getLength(); i++) {
             NodeList child = nodeList.item(i).getChildNodes();
-            
-//            System.out.println("현재노드이름 : " + child.item(2).getNodeName());
-//            System.out.println("현재노드이름 : " + child.item(2).getTextContent());
             
             if(child.item(2).getNodeName().equals("category") && child.item(2).getTextContent().equals("T1H")){
             	temperature = child.item(5).getTextContent();
@@ -135,8 +131,6 @@ public class WeatherHelper {
         String rstHtml = "<span class=\"w_date\">" + strToday + " " + strTime + "</span>";
         rstHtml = rstHtml + "<span class=\"w_img\"><img src=\"/images/sub/w_icon0" + skyCode + ".png\"></span>";
         rstHtml = rstHtml + "<span class=\"w_info\"> " + skyState + " " + temperature + " ℃</span>";
-//        System.out.println(rstHtml);
-        
         
 		return rstHtml;
 	}

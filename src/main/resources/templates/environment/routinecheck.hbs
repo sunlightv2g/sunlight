@@ -42,10 +42,10 @@
 						<tbody>
 							<tr>
 								<td style="text-align:right">
-                                    기간  <span class="calendar_input"><input type="text" id="from1" class="text w78p"/></span> ~ <span class="calendar_input" ><input type="text" id="to1" class="text w78p" /></span>
+                                    기간  <span class="calendar_input"><input type="text" id="from1" value="{{search.startDate}}" class="text w78p"/></span> ~ <span class="calendar_input" ><input type="text" id="to1" value="{{search.endDate}}" class="text w78p" /></span>
 								</td>
                                 <td class="pd_r30">
-									<button type="button" class="btn_search02 btn_small">검색</button>
+									<button type="button" onclick="goPage(0); return false;" class="btn_search02 btn_small">검색</button>
 								</td>
 							</tr>
 						</tbody>
@@ -57,17 +57,17 @@
 					<div class="tbl_top clear">
 						<div class="tbl_left">
 							<i class="fa fa-file-text-o"></i>
-							<strong>전체 10 </strong>
-							<span>(1/1 page)</span>
+							<strong>전체 {{formatNumber totlalCount}} </strong>
+							<span>({{currentPage}}/{{totlalPageCount}} page)</span>
 						</div>
 						<div class="tbl_right"><a href="#dispay_view1" onclick="view_show(1);" class="btn btn_w155 btn_sky"> 신규등록</a>
 						</div>
 					</div>
 
 					<!-- 팝업 등록 -->
-					<div id="dispay_view1" class="popup js-popup">
+					<div class="popup js-popup modal fade" id="dispay_view1" tabindex="-1" role="dialog" aria-labelledby="savePostsLabel" aria-hidden="true">
 						<div class="pop_header">
-							<h1 class="pop_tit">정기점검 입력/수정</h1>
+							<h1 class="pop_tit" id="savePostsLabel">정기점검 입력/수정</h1>
 							<a href="#" onclick="view_hide(1);" class="pop_close"></a>
 						</div>
 						<div class="pop_content">
@@ -86,49 +86,53 @@
 										<tr>
 											<th scope="row">주기</th>
 											<td colspan="3">
-												<input type="text" class="text w95p" >
+												<select class="w100p" id="period">
+													<option value="매월">매월</option>
+													<option value="매주">매주</option>
+													<option value="매일">매일</option>
+												</select>
 											</td>
 										</tr>
 										<tr>
 											<th scope="row">시기</th>
 											<td colspan="3">
-												<select class="w100p">
-													<option value="">월요일</option>
-													<option value="">화요일</option>
-													<option value="">수요일</option>
-													<option value="">목요일</option>
-													<option value="">금요일</option>
-													<option value="">토요일</option>
-													<option value="">일요일</option>
+												<select class="w100p" id="weektime">
+													<option value="월요일">월요일</option>
+													<option value="화요일">화요일</option>
+													<option value="수요일">수요일</option>
+													<option value="목요일">목요일</option>
+													<option value="금요일">금요일</option>
+													<option value="토요일">토요일</option>
+													<option value="일요일">일요일</option>
 												</select>
 											</td>
 										</tr>
 										<tr>
 											<th scope="row">설비명</th>
 											<td colspan="3">
-												<input type="text" class="text w95p" >
+												<input type="text" class="text w95p" id="equipment" placeholder="설비명을 입력하세요" />
 											</td>
 										</tr>
 										<tr>
 											<th scope="row">등록자</th>
 											<td>
-												<input type="text" class="text w95p" >
+												<input type="text" class="text w95p" id="author" placeholder="등록자를 입력하세요">
 											</td>
 											<th>작업자</th>
 											<td>
-												<input type="text" class="text w95p" >
+												<input type="text" class="text w95p" id="worker" placeholder="작업자를 입력하세요">
 											</td>
 										</tr>
 										<tr>
 											<th scope="row">작업상세</th>
 											<td  colspan="3">
-												<textarea title="내용을 입력하세요"></textarea>
+												<textarea title="내용을 입력하세요" id="contents" placeholder="작업상세를 입력하세요"></textarea>
 											</td>
 										</tr>
 										<tr>
 											<th scope="row">비고</th>
 											<td colspan="3">
-												<input type="text" class="text w95p" >
+												<input type="text" class="text w95p" id="remark" placeholder="비고를 입력하세요" >
 											</td>
 										</tr>
 									</tbody>
@@ -136,7 +140,7 @@
 							</div>
 							<!-- // tbl -->
 							<div class="mar_t20 pop_footer">
-								<a href="#" class="btn btn_w155 btn_sky">등록</a>
+								<a href="#" class="btn btn_w155 btn_sky" id="btn-save">등록</a>
 								<a href="#" onclick="view_hide(1);" class="btn btn_w155 btn_gray02">취소</a>
 							</div>
 
@@ -165,104 +169,35 @@
 									<th scope="col">시기</th>
 									<th scope="col">설비명</th>
 									<th scope="col">등록자</th>
-									<th scope="col">작업자</th>
-									<th scope="col">작업내역</th>
-									<th scope="col">비고</th>
+									<th scope="col">{{dataList.count}}</th>
+									<th scope="col">{{dataList.size}}</th>
+									<th scope="col">{{dataList.length}}</th>
 								</tr>
 							</thead>
 							<tbody>
+							{{#each dataList}}
 								<tr>
-									<td>매월</td>
-									<td>월요일</td>
-									<td>광혜원보건지소_센서</td>
-									<td>나상수</td>
-									<td>김유신</td>
-									<td>통신이상 유/무 점검</td>
-									<td></td>
+									<td>{{period}}</td>
+									<td>{{weektime}}</td>
+									<td>{{equipment}}</td>
+									<td>{{author}}</td>
+									<td>{{worker}}</td>
+									<td>{{content}}</td>
+									<td>{{remark}}</td>
 								</tr>
+							{{/each}}
+							{{#eqLong totlalCount 0}}
 								<tr>
-									<td>매월</td>
-									<td>월요일</td>
-									<td>광혜원보건지소_센서</td>
-									<td>나상수</td>
-									<td>김유신</td>
-									<td>통신이상 유/무 점검</td>
-									<td></td>
+									<td colspan="7">등록/검색된 결과가 없습니다.</td>
 								</tr>
-								<tr>
-									<td>매월</td>
-									<td>월요일</td>
-									<td>광혜원보건지소_센서</td>
-									<td>나상수</td>
-									<td>김유신</td>
-									<td>통신이상 유/무 점검</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>매월</td>
-									<td>월요일</td>
-									<td>광혜원보건지소_센서</td>
-									<td>나상수</td>
-									<td>김유신</td>
-									<td>통신이상 유/무 점검</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>매월</td>
-									<td>월요일</td>
-									<td>광혜원보건지소_센서</td>
-									<td>나상수</td>
-									<td>김유신</td>
-									<td>통신이상 유/무 점검</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>매월</td>
-									<td>월요일</td>
-									<td>광혜원보건지소_센서</td>
-									<td>나상수</td>
-									<td>김유신</td>
-									<td>통신이상 유/무 점검</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>매월</td>
-									<td>월요일</td>
-									<td>광혜원보건지소_센서</td>
-									<td>나상수</td>
-									<td>김유신</td>
-									<td>통신이상 유/무 점검</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>매월</td>
-									<td>월요일</td>
-									<td>광혜원보건지소_센서</td>
-									<td>나상수</td>
-									<td>김유신</td>
-									<td>통신이상 유/무 점검</td>
-									<td></td>
-								</tr>
+							{{/eqLong}}	
 							</tbody>
 						</table>
 					</div>
 					<!-- // tbl -->
 					<!-- paging -->
-					<div class="paging_wrap">
-					    <div class="paging">
-					        <a href="#" class="btn_page first">목록 처음으로 이동</a>
-					        <a href="#" class="btn_page prev">이전 페이지로 이동</a>
-					        <strong class="page_num">1</strong>
-					        <a href="#">2</a>
-					        <a href="#">3</a>
-					        <a href="#">4</a>
-					        <a href="#">5</a>
-					        <a href="#" class="btn_page next">다음 페이지로 이동</a>
-					        <a href="#" class="btn_page last">목록 마지막으로 이동</a>
-					    </div>
-					</div>
+					{{>include/pagination}}
 					<!-- //paging -->
-
                 
 			</section>
 		</div>
@@ -272,5 +207,8 @@
 		<!--// footer -->
 	</div>
 	<!--// wrapper -->
+	<!--custom js 추가-->
+    <script src="/js/app/environment/routinecheck.js"></script>
+    <!--//custom js-->
 </body>
 </html>

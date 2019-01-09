@@ -3,10 +3,15 @@
 				<h1 class="logo"><a href="index.html"><img src="/images/common/logo.png" alt="태양광시설관리 시스템"></a></h1>
 				<div class="util_right">
 					<ul class="clear">
-						<li><a href="login.html">로그인</a></li>
-						<li><a href="mypage.html">회원가입</a></li>
+					{{#session}}
+						<li><a href="#dispay_view2" onclick="logout(); return false;">로그아웃</a></li>
+					{{else}}
+						<li><a href="/environment/login">로그인</a></li>
+						<li><a href="#dispay_view2" onclick="view_show(2,'join'); return false;">회원가입</a></li>
+					{{/session}}
 					</ul>
-					<a href="sitemap.html" title="사이트맵 페이지로 이동" class="go_sitemap"><i class="fa fa-navicon"></i></a>
+					
+					<a href="/" title="MAIN 이동" class="go_sitemap"><i class="fa fa-navicon"></i></a>
 				</div>
                 <!--  gnb -->
 				<div id="gnb_area">
@@ -35,10 +40,10 @@
 								</ul>
 							</li>
 							<li class="depth1_4">
-								<a href="/environment/routineinspection">환경설정</a>
+								<a href="/environment/routinecheck">환경설정</a>
 								<div class="gnb_txt"><strong>환경설정</strong>시스템의 설비정보 및 사용자정보를 <br>관리합니다.</div>
 								<ul class="depthBox">
-									<li><a href="/environment/routineinspection">정기점검</a></li>
+									<li><a href="/environment/routinecheck">정기점검</a></li>
 									<li><a href="/environment/equipmentinfo">설비정보</a></li>
 									<li><a href="/environment/userinfo">사용자정보</a></li>
 								</ul>
