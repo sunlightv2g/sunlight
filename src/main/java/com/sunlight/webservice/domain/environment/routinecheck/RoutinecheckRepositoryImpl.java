@@ -1,4 +1,4 @@
-package com.sunlight.webservice.domain.environment.routine;
+package com.sunlight.webservice.domain.environment.routinecheck;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -16,9 +16,9 @@ import org.springframework.stereotype.Repository;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.JPQLQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import com.sunlight.webservice.domain.environment.routine.QRoutinecheck;
-import com.sunlight.webservice.dto.environment.routine.RoutinecheckMainResponseDto;
-import com.sunlight.webservice.dto.environment.routine.RoutinecheckSearchRequestDto;
+import com.sunlight.webservice.domain.environment.routinecheck.QRoutinecheck;
+import com.sunlight.webservice.dto.environment.routinecheck.RoutinecheckMainResponseDto;
+import com.sunlight.webservice.dto.environment.routinecheck.RoutinecheckSearchRequestDto;
 
 @Repository
 public class RoutinecheckRepositoryImpl extends QueryDslRepositorySupport implements RoutinecheckCustom{

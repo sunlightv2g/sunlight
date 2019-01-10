@@ -1,10 +1,10 @@
-package com.sunlight.webservice.domain.environment.routine;
+package com.sunlight.webservice.domain.environment.routinecheck;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.sunlight.webservice.dto.environment.routine.RoutinecheckMainResponseDto;
-import com.sunlight.webservice.dto.environment.routine.RoutinecheckSearchRequestDto;
+import com.sunlight.webservice.dto.environment.routinecheck.RoutinecheckMainResponseDto;
+import com.sunlight.webservice.dto.environment.routinecheck.RoutinecheckSearchRequestDto;
 
 public interface RoutinecheckCustom {
 

@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="kr">
+<head>
+{{>include/head}}
+</head>
+ <body>
+ {{>include/skipnavi}} 
+	<!-- wrapper -->
+	<div id="wrapper">
+		<!-- header  -->
+		<header id="header" class="noprint">
+			{{>include/gnb}}
+			<!-- loaction -->
+			<div class="loaction_bg">
+				<div class="location_area clear">
+					{{>include/location3}}		
+					{{>include/weather}}		
+				</div>
+			</div>
+			<!-- // loaction -->
+		</header>
+		<!-- // header   -->
+		<!-- container -->
+		<div id="container div_page a4" class="page-divide">
+			<section id="content">
+                <!-- 실시간현황 -->
+				{{>include/live}}
+				<!-- 실시간현황 -->
+
+				<!-- 타이틀 -->
+				<h2 class="page_title"><span>유지보수 이력관리</span></h2>
+				<!-- 타이틀 -->
+
+					<!-- 팝업 등록 -->
+					<div id="dispay_view1" class="popup js-popup">
+						<div class="pop_header">
+							<h1 class="pop_tit">유지보수이력 입력/수정</h1>
+							<a href="#" onclick="view_hide(1);" class="pop_close"></a>
+						</div>
+						<div class="pop_content">
+							
+							<!-- tbl -->
+							<div class="table_warp mar_t20">
+								<table class="tbl_row_type01">
+									<caption>내용(제목, 작성자, 작성일 등으로 구성)</caption>
+									<colgroup>
+										<col style="width:15%;">
+										<col style="width:35%;">
+										<col style="width:15%;">
+										<col >
+									</colgroup>
+									<tbody>
+										<tr>
+											<th scope="row">등록일</th>
+											<td colspan="3">
+												<span class="calendar_input"><input type="text" id="from1" class="text w78p"/></span>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">설비명</th>
+											<td colspan="3">
+												<input type="text" class="text w95p" >
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">등록자</th>
+											<td>
+												<input type="text" class="text w95p" >
+											</td>
+											<th>작업자</th>
+											<td>
+												<input type="text" class="text w95p" >
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">작업상세</th>
+											<td  colspan="3">
+												<textarea title="내용을 입력하세요"></textarea>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">처리결과</th>
+											<td  colspan="3">
+												<textarea title="내용을 입력하세요"></textarea>
+											</td>
+										</tr>
+										<tr>
+											<th scope="row">비고</th>
+											<td colspan="3">
+												<input type="text" class="text w95p" >
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!-- // tbl -->
+							<div class="mar_t20 pop_footer">
+								<a href="#" class="btn btn_w155 btn_sky">등록</a>
+								<a href="#" onclick="view_hide(1);" class="btn btn_w155 btn_gray02">취소</a>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="popup_bg" id="js-popup-bg"></div>
+					<!-- // 팝업 등록 -->
+
+                <!-- 타이틀 -->
+				<div>
+				<form name="defaultFrm" id="defaultFrm" action="/admin/apply/calendarList.do" method="post">
+					<input name="selectedYear" id="inpSelectedYear" type="hidden" value="2019">
+					<input name="selectedMonth" id="inpSelectedMonth" type="hidden" value="01">
+					<fieldset>
+						<div class="srchWrap mar_b15 c">							
+							<a class="mar_r15 bgPrev" href="javascript:fncGoMonth('2018','12');">이전달</a>
+							<span class="inlineBlock marL5">2019년</span> <span class="inlineBlock marL5 marR10">01월</span>
+							<a class="mar_l20 bgNext" href="javascript:fncGoMonth('2019','02');">다음달</a>
+							<div class="tbl_right"><a href="#dispay_view1" onclick="view_show(1);" class="btn btn_w155 btn_sky">신규등록</a></div>
+						</div>
+						<div class="mar_b20">
+							<table class="table calMeal">
+								<colgroup>
+									<col width="14.2%">
+									<col width="14.2%">
+									<col width="14.2%">
+									<col width="14.2%">
+									<col width="14.2%">
+									<col width="14.2%">
+									<col width="14.2%">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>일</th>
+										<th>월</th>
+										<th>화</th>
+										<th>수</th>
+										<th>목</th>
+										<th>금</th>
+										<th>토</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+											<td></td>
+											<td></td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														1<br>
+													</span>																		
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														2<br>
+													</span>
+												</div>
+											<td style="cursor: pointer;">
+												<div class="min_h">
+													<span class="date today ">
+														3<br>
+													</span>
+													● 문백보건지소	
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														4<br>
+													</span>	
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														5<br>
+													</span>									
+												</div>
+											</td>
+											
+									</tr>
+									<tr>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														6<br>
+													</span>
+											
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														7<br>
+													</span>
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														8<br>
+													</span>
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														9<br>
+													</span>
+									
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														10<br>
+													</span>
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														11<br>
+													</span>
+										
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														12<br>
+													</span>
+												</div>
+											</td>
+											
+									</tr>
+									<tr>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														13<br>
+													</span>
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														14<br>
+													</span>
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														15<br>
+													</span>
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														16<br>
+													</span>
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														17<br>
+													</span>
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														18<br>
+													</span>
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														19<br>
+													</span>
+												</div>
+											</td>
+											
+									</tr>
+									<tr>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														20<br>
+													</span>
+												</div>
+											</td>
+
+											<td>
+												<div class="min_h">
+													<span class="date">
+														21<br>
+													</span>
+													
+												</div>
+											</td>
+
+											<td>
+												<div class="min_h">
+													<span class="date">
+														22<br>
+													</span>
+													
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														23<br>
+													</span>
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														24<br>
+													</span>
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														25<br>
+													</span>
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														26<br>
+													</span>
+												</div>
+											</td>
+											
+									</tr>
+									<tr>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														27<br>
+													</span>												
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														28<br>
+													</span>
+													
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														29<br>
+													</span>
+													
+												</div>
+											</td>
+
+											<td>
+												<div class="min_h">
+													<span class="date">
+														30<br>
+													</span>
+												</div>
+											</td>
+											<td>
+												<div class="min_h">
+													<span class="date">
+														31<br>
+													</span>
+													
+												</div>
+											</td>
+										<!-- 마지막날부터 한주 끝까지  빈칸 삽입 시작 -->
+											<!-- 일요일이 아닐 경우 빈칸 삽입 -->
+												<td style="height: 100px;">
+													<div class="td_cont blank">
+														<div class="day"></div>
+													</div>
+												</td>
+											
+												<td style="height: 100px;">
+													<div class="td_cont blank">
+														<div class="day"></div>
+													</div>
+												</td>
+										<!-- 마지막날부터 한주 끝까지 빈칸 삽입 끝 -->
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</fieldset>
+				</form>		
+			</div>
+              
+			</section>
+		</div>
+		<!--// container -->
+		<!-- footer -->
+		{{>include/footer}}
+		<!--// footer -->
+	</div>
+	<!--// wrapper -->
+	<!--custom js 추가-->
+    <script src="/js/app/maintenance/eventmanage.js"></script>
+    <!--//custom js-->
+</body>
+</html>

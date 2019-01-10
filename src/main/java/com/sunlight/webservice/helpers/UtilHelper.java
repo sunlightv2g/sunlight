@@ -20,6 +20,10 @@ public class UtilHelper {
 		DecimalFormat df = new DecimalFormat("#,###");
 		return df.format(val);
 	}
+		
+	public String replace(String val, String chr1, String chr2) {
+		return val.replace(chr1, chr2);
+	}
 	
 	public CharSequence eq(String firstStr, String secondStr, Options options) throws IOException {
 		if(firstStr != null && firstStr.equals(secondStr)) {

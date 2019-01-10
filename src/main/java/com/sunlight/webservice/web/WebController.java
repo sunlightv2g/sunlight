@@ -10,13 +10,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.sunlight.webservice.dto.environment.equipmentinfo.EquipmentinfoMainResponseDto;
 import com.sunlight.webservice.dto.environment.equipmentinfo.EquipmentinfoSearchRequestDto;
-import com.sunlight.webservice.dto.environment.routine.RoutinecheckMainResponseDto;
-import com.sunlight.webservice.dto.environment.routine.RoutinecheckSearchRequestDto;
+import com.sunlight.webservice.dto.environment.routinecheck.RoutinecheckMainResponseDto;
+import com.sunlight.webservice.dto.environment.routinecheck.RoutinecheckSearchRequestDto;
 import com.sunlight.webservice.dto.environment.userinfo.UserinfoMainResponseDto;
 import com.sunlight.webservice.dto.environment.userinfo.UserinfoSearchRequestDto;
+import com.sunlight.webservice.dto.maintenance.eventmanage.EventmanageMainResponseDto;
+import com.sunlight.webservice.dto.maintenance.eventmanage.EventmanageSearchRequestDto;
 import com.sunlight.webservice.service.environment.EquipmentinfoService;
 import com.sunlight.webservice.service.environment.RoutinecheckService;
 import com.sunlight.webservice.service.environment.UserinfoService;
+import com.sunlight.webservice.service.maintenance.EventmanageService;
 import com.sunlight.webservice.service.posts.PostsService;
 
 import lombok.AllArgsConstructor;
@@ -29,6 +32,7 @@ public class WebController {
 	private RoutinecheckService routineCheckService;
 	private UserinfoService userinfoService;
 	private EquipmentinfoService equipmentinfoService;
+	private EventmanageService eventmanageService;
 	
     @GetMapping("/")
     public String main(Model model) {
@@ -47,9 +51,30 @@ public class WebController {
     	return "monitoring/livemonitoring";
     }
     
+    @GetMapping("/statistics/statistics")
+    public String statistics(){
+    	return "statistics/statistics";
+    }
+    
     @GetMapping("/maintenance/eventmanage")
-    public String eventmanage(){
+    public String eventmanage(Model model, EventmanageSearchRequestDto eventmanageSearchResponseDto, @PageableDefault(sort = { "id" }, direction = Direction.DESC, page=0, size = 10) Pageable pageable){
+    	
+    	Page<EventmanageMainResponseDto> eventmanageMainResponseDto = eventmanageService.getEventmanageListByQueryDSL(eventmanageSearchResponseDto, pageable);
+    	
+    	model.addAttribute("search", eventmanageSearchResponseDto);
+    	model.addAttribute("dataList", eventmanageMainResponseDto);
+    	
+    	model.addAttribute("currentPage", pageable.getPageNumber()+1);
+    	model.addAttribute("countPerPageGroup",pageable.getPageSize());
+    	model.addAttribute("totlalCount", eventmanageMainResponseDto.getTotalElements());
+    	model.addAttribute("totlalPageCount", eventmanageMainResponseDto.getTotalPages());
+    	
     	return "maintenance/eventmanage";
+    }
+    
+    @GetMapping("/maintenance/eventhistory")
+    public String eventhistory(){
+    	return "maintenance/eventhistory";
     }
     
     @GetMapping("/environment/routinecheck")
@@ -67,6 +92,7 @@ public class WebController {
     	
     	return "environment/routinecheck";
     }
+    
     
     @GetMapping("/environment/userinfo")
     public String userinfo(Model model, UserinfoSearchRequestDto userinfoSearchResponseDto, @PageableDefault(sort = { "id" }, direction = Direction.DESC, page=0, size = 10) Pageable pageable){

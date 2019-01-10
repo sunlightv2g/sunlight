@@ -1,3 +1,6 @@
+location.href = "/monitoring/livemonitoring";
+return false;
+
 var main = {
     init : function () {
         var _this = this;
@@ -29,3 +32,4 @@ var main = {
 };
 
 main.init();
+

@@ -1,4 +1,4 @@
-package com.sunlight.webservice.dto.environment.routine;
+package com.sunlight.webservice.dto.environment.routinecheck;
 
 import java.io.Serializable;
 

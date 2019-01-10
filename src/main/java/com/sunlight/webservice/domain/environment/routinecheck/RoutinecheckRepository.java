@@ -1,4 +1,4 @@
-package com.sunlight.webservice.domain.environment.routine;
+package com.sunlight.webservice.domain.environment.routinecheck;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

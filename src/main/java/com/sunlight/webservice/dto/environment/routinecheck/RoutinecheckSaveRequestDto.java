@@ -1,8 +1,8 @@
-package com.sunlight.webservice.dto.environment.routine;
+package com.sunlight.webservice.dto.environment.routinecheck;
 
 import java.io.Serializable;
 
-import com.sunlight.webservice.domain.environment.routine.Routinecheck;
+import com.sunlight.webservice.domain.environment.routinecheck.Routinecheck;
 
 import lombok.Builder;
 import lombok.Getter;

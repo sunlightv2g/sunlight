@@ -32,11 +32,8 @@ public class EquipmentinfoRepositoryImpl extends QueryDslRepositorySupport imple
 
 /*    @Override
     public EquipmentinfoMainResponseDto getEquipmentinfoByQuerydsl(Long id) {
-
         JPAQueryFactory queryFactory = new JPAQueryFactory(this.getEntityManager());
-
         QEquipmentinfo equipmentinfo = QEquipmentinfo.equipmentinfo;
-
         return queryFactory.select(
         		Projections.constructor(EquipmentinfoMainResponseDto.class, 
         				equipmentinfo.period
@@ -49,7 +46,6 @@ public class EquipmentinfoRepositoryImpl extends QueryDslRepositorySupport imple
         				))
                 .from(equipmentinfo)
                 .where(equipmentinfo.id.eq(id)).fetchOne();
-
     }*/
 
 	@Override

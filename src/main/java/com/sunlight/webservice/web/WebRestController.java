@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sunlight.webservice.dto.environment.routine.RoutinecheckSaveRequestDto;
+import com.sunlight.webservice.dto.environment.routinecheck.RoutinecheckSaveRequestDto;
 import com.sunlight.webservice.dto.environment.userinfo.UserinfoSaveRequestDto;
 import com.sunlight.webservice.dto.environment.userinfo.UserinfoSearchRequestDto;
 import com.sunlight.webservice.dto.posts.PostsSaveRequestDto;
@@ -90,7 +90,6 @@ public class WebRestController {
     	System.out.println("httpSession USEID : " + httpSession.getAttribute("USEID"));
     	return rstCnt;
     }
-    
     
     @PostMapping("/environment/userlogout")
     public long userlogout(HttpServletRequest request){

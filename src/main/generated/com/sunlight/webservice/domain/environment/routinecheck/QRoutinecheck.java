@@ -1,4 +1,4 @@
-package com.sunlight.webservice.domain.environment.routine;
+package com.sunlight.webservice.domain.environment.routinecheck;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
@@ -15,7 +15,7 @@ import com.querydsl.core.types.Path;
 @Generated("com.querydsl.codegen.EntitySerializer")
 public class QRoutinecheck extends EntityPathBase<Routinecheck> {
 
-    private static final long serialVersionUID = -1047198755L;
+    private static final long serialVersionUID = 479340319L;
 
     public static final QRoutinecheck routinecheck = new QRoutinecheck("routinecheck");
 
