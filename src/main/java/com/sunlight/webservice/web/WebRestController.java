@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sunlight.webservice.dto.environment.routinecheck.RoutinecheckSaveRequestDto;
 import com.sunlight.webservice.dto.environment.userinfo.UserinfoSaveRequestDto;
 import com.sunlight.webservice.dto.environment.userinfo.UserinfoSearchRequestDto;
+import com.sunlight.webservice.dto.maintenance.eventhistory.EventhistorySaveRequestDto;
 import com.sunlight.webservice.dto.posts.PostsSaveRequestDto;
 import com.sunlight.webservice.service.environment.RoutinecheckService;
 import com.sunlight.webservice.service.environment.UserinfoService;
+import com.sunlight.webservice.service.maintenance.EventhistoryService;
 import com.sunlight.webservice.service.posts.PostsService;
 
 import lombok.AllArgsConstructor;
@@ -29,6 +31,7 @@ public class WebRestController {
 	private PostsService postsService;
 	private RoutinecheckService routinecheckService;
 	private UserinfoService userinfoService;
+	private EventhistoryService eventhistoryService;
 	private Environment env;
 
 	@GetMapping("/hello")
@@ -57,6 +60,16 @@ public class WebRestController {
     @PostMapping("/environment/routinecheck")
     public void routinecheckSave(@RequestBody RoutinecheckSaveRequestDto dto){
 		routinecheckService.save(dto);	
+    }
+    
+    @PostMapping("/maintenance/eventhistory")
+    public void eventhistorySave(@RequestBody EventhistorySaveRequestDto dto){
+    	eventhistoryService.save(dto);	
+    }
+    
+    @PutMapping("/maintenance/eventhistory")
+    public void eventhistoryUpdate(@RequestBody EventhistorySaveRequestDto dto){
+    	eventhistoryService.update(dto);	
     }
     
     @PostMapping("/environment/userinfo")

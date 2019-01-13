@@ -1,5 +1,10 @@
 package com.sunlight.webservice.web;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
@@ -14,11 +19,14 @@ import com.sunlight.webservice.dto.environment.routinecheck.RoutinecheckMainResp
 import com.sunlight.webservice.dto.environment.routinecheck.RoutinecheckSearchRequestDto;
 import com.sunlight.webservice.dto.environment.userinfo.UserinfoMainResponseDto;
 import com.sunlight.webservice.dto.environment.userinfo.UserinfoSearchRequestDto;
+import com.sunlight.webservice.dto.maintenance.eventhistory.EventhistoryMainResponseDto;
+import com.sunlight.webservice.dto.maintenance.eventhistory.EventhistorySearchRequestDto;
 import com.sunlight.webservice.dto.maintenance.eventmanage.EventmanageMainResponseDto;
 import com.sunlight.webservice.dto.maintenance.eventmanage.EventmanageSearchRequestDto;
 import com.sunlight.webservice.service.environment.EquipmentinfoService;
 import com.sunlight.webservice.service.environment.RoutinecheckService;
 import com.sunlight.webservice.service.environment.UserinfoService;
+import com.sunlight.webservice.service.maintenance.EventhistoryService;
 import com.sunlight.webservice.service.maintenance.EventmanageService;
 import com.sunlight.webservice.service.posts.PostsService;
 
@@ -33,6 +41,7 @@ public class WebController {
 	private UserinfoService userinfoService;
 	private EquipmentinfoService equipmentinfoService;
 	private EventmanageService eventmanageService;
+	private EventhistoryService eventhistoryService;
 	
     @GetMapping("/")
     public String main(Model model) {
@@ -73,7 +82,53 @@ public class WebController {
     }
     
     @GetMapping("/maintenance/eventhistory")
-    public String eventhistory(){
+    public String eventhistory(Model model, EventhistorySearchRequestDto eventhistorySearchResponseDto, @PageableDefault(sort = { "id" }, direction = Direction.DESC, page=0, size = 10) Pageable pageable){
+    	String cYear = eventhistorySearchResponseDto.getCYear();
+    	String cMonth = eventhistorySearchResponseDto.getCMonth();
+    	
+    	if(cYear == null || cYear.equals("")) {
+    		cYear = String.valueOf(Calendar.getInstance().get(Calendar.YEAR));
+    		eventhistorySearchResponseDto.setCYear(cYear);
+    	} 
+    	if(cMonth == null || cMonth.equals("")) {
+    		cMonth = String.valueOf(Calendar.getInstance().get(Calendar.MONTH)+1);
+    		eventhistorySearchResponseDto.setCMonth(addZero(cMonth));
+    	} 
+    	    	 
+    	
+    	/*Calendar cal = Calendar.getInstance();
+    	cal.set(Calendar.YEAR, Integer.valueOf(cYear)); 
+    	cal.set(Calendar.MONTH, Integer.valueOf(cMonth)-1); 
+    	String pYear = String.valueOf(cal.get(Calendar.YEAR));
+    	String pMonth = String.valueOf(cal.get(Calendar.MONTH));*/
+
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMM");
+		Calendar cal = Calendar.getInstance();
+		int year = Integer.parseInt(cYear);
+		int month = Integer.parseInt(cMonth);
+		cal.set(year, month - 1, 0);
+		String pYear = dateFormat.format(cal.getTime()).substring(0,4); 
+		String pMonth = dateFormat.format(cal.getTime()).substring(4,6);
+		
+		cal.set(year, month + 1, 0);
+		String nYear = dateFormat.format(cal.getTime()).substring(0,4); 
+		String nMonth = dateFormat.format(cal.getTime()).substring(4,6); 
+		
+		eventhistorySearchResponseDto.setPYear(pYear);
+		eventhistorySearchResponseDto.setPMonth(pMonth);
+		eventhistorySearchResponseDto.setNYear(nYear);
+		eventhistorySearchResponseDto.setNMonth(nMonth);
+		
+		System.out.println("이전년도 : " + pYear);
+		System.out.println("이전월 : " + pMonth);
+		System.out.println("다음년도 : " + nYear);
+		System.out.println("다음월 : " + nMonth);
+        
+    	List<EventhistoryMainResponseDto> eventhistoryMainResponseDto = eventhistoryService.getEventhistoryListByQueryDSL(eventhistorySearchResponseDto);
+    	
+    	model.addAttribute("search", eventhistorySearchResponseDto);
+    	model.addAttribute("dataList", eventhistoryMainResponseDto);
+    	
     	return "maintenance/eventhistory";
     }
     
@@ -110,6 +165,7 @@ public class WebController {
     	return "environment/userinfo";
     }
 
+    
     @GetMapping("/environment/equipmentinfo")
     public String equipmentinfo(Model model, EquipmentinfoSearchRequestDto equipmentinfoSearchResponseDto, @PageableDefault(sort = { "id" }, direction = Direction.DESC, page=0, size = 10) Pageable pageable){
     	
@@ -132,5 +188,11 @@ public class WebController {
     	return "environment/login";
     }
     
+	public static String addZero(String str) {
+	    if(str.length() == 1) {
+	    	str = "0" + str;
+	    }
+	    return str;
+	}
     
 }

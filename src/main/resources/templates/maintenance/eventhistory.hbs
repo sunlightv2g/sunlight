@@ -59,35 +59,35 @@
 										<tr>
 											<th scope="row">설비명</th>
 											<td colspan="3">
-												<input type="text" class="text w95p" >
+												<input type="text" class="text w95p" id="equipment" placeholder="설비명을 입력하세요" />
 											</td>
 										</tr>
 										<tr>
 											<th scope="row">등록자</th>
 											<td>
-												<input type="text" class="text w95p" >
+												<input type="text" class="text w95p" id="author" placeholder="등록자를 입력하세요">
 											</td>
 											<th>작업자</th>
 											<td>
-												<input type="text" class="text w95p" >
+												<input type="text" class="text w95p" id="worker" placeholder="작업자를 입력하세요">
 											</td>
 										</tr>
 										<tr>
 											<th scope="row">작업상세</th>
 											<td  colspan="3">
-												<textarea title="내용을 입력하세요"></textarea>
+												<textarea title="내용을 입력하세요" id="contents" placeholder="작업상세를 입력하세요"></textarea>
 											</td>
 										</tr>
 										<tr>
 											<th scope="row">처리결과</th>
 											<td  colspan="3">
-												<textarea title="내용을 입력하세요"></textarea>
+												<textarea title="내용을 입력하세요" id="result" placeholder="처리결과를 입력하세요"></textarea>
 											</td>
 										</tr>
 										<tr>
 											<th scope="row">비고</th>
 											<td colspan="3">
-												<input type="text" class="text w95p" >
+												<input type="text" class="text w95p" id="remark" placeholder="비고를 입력하세요" >
 											</td>
 										</tr>
 									</tbody>
@@ -95,7 +95,7 @@
 							</div>
 							<!-- // tbl -->
 							<div class="mar_t20 pop_footer">
-								<a href="#" class="btn btn_w155 btn_sky">등록</a>
+								<a href="#" class="btn btn_w155 btn_sky"  id="btn-save">등록</a>
 								<a href="#" onclick="view_hide(1);" class="btn btn_w155 btn_gray02">취소</a>
 							</div>
 
@@ -112,9 +112,9 @@
 					<input name="selectedMonth" id="inpSelectedMonth" type="hidden" value="01">
 					<fieldset>
 						<div class="srchWrap mar_b15 c">							
-							<a class="mar_r15 bgPrev" href="javascript:fncGoMonth('2018','12');">이전달</a>
-							<span class="inlineBlock marL5">2019년</span> <span class="inlineBlock marL5 marR10">01월</span>
-							<a class="mar_l20 bgNext" href="javascript:fncGoMonth('2019','02');">다음달</a>
+							<a class="mar_r15 bgPrev" href="javascript:fncGoMonth('{{search.pYear}}','{{search.pMonth}}');">이전달</a>
+							<span class="inlineBlock marL5">{{search.cYear}}년</span> <span class="inlineBlock marL5 marR10">{{search.cMonth}}월</span>
+							<a class="mar_l20 bgNext" href="javascript:fncGoMonth('{{search.nYear}}','{{search.nMonth}}');">다음달</a>
 							<div class="tbl_right"><a href="#dispay_view1" onclick="view_show(1);" class="btn btn_w155 btn_sky">신규등록</a></div>
 						</div>
 						<div class="mar_b20">
@@ -141,265 +141,44 @@
 								</thead>
 								<tbody>
 									<tr>
-											<td></td>
-											<td></td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														1<br>
-													</span>																		
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														2<br>
-													</span>
-												</div>
-											<td style="cursor: pointer;">
-												<div class="min_h">
-													<span class="date today ">
-														3<br>
-													</span>
-													● 문백보건지소	
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														4<br>
-													</span>	
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														5<br>
-													</span>									
-												</div>
-											</td>
-											
-									</tr>
-									<tr>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														6<br>
-													</span>
-											
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														7<br>
-													</span>
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														8<br>
-													</span>
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														9<br>
-													</span>
-									
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														10<br>
-													</span>
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														11<br>
-													</span>
+										{{#calendar this search.cYear search.cMonth }}
 										
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														12<br>
-													</span>
-												</div>
-											</td>
-											
-									</tr>
-									<tr>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														13<br>
-													</span>
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														14<br>
-													</span>
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														15<br>
-													</span>
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														16<br>
-													</span>
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														17<br>
-													</span>
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														18<br>
-													</span>
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														19<br>
-													</span>
-												</div>
-											</td>
-											
-									</tr>
-									<tr>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														20<br>
-													</span>
-												</div>
-											</td>
-
-											<td>
-												<div class="min_h">
-													<span class="date">
-														21<br>
-													</span>
-													
-												</div>
-											</td>
-
-											<td>
-												<div class="min_h">
-													<span class="date">
-														22<br>
-													</span>
-													
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														23<br>
-													</span>
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														24<br>
-													</span>
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														25<br>
-													</span>
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														26<br>
-													</span>
-												</div>
-											</td>
-											
-									</tr>
-									<tr>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														27<br>
-													</span>												
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														28<br>
-													</span>
-													
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														29<br>
-													</span>
-													
-												</div>
-											</td>
-
-											<td>
-												<div class="min_h">
-													<span class="date">
-														30<br>
-													</span>
-												</div>
-											</td>
-											<td>
-												<div class="min_h">
-													<span class="date">
-														31<br>
-													</span>
-													
-												</div>
-											</td>
-										<!-- 마지막날부터 한주 끝까지  빈칸 삽입 시작 -->
-											<!-- 일요일이 아닐 경우 빈칸 삽입 -->
-												<td style="height: 100px;">
-													<div class="td_cont blank">
-														<div class="day"></div>
-													</div>
-												</td>
-											
-												<td style="height: 100px;">
-													<div class="td_cont blank">
-														<div class="day"></div>
-													</div>
-												</td>
-										<!-- 마지막날부터 한주 끝까지 빈칸 삽입 끝 -->
-									</tr>
+											{{#each firstList}}
+												<td></td>
+											{{/each}} 
+										
+											{{#each dayList}}
+												{{#if leftday}}
+												</tr>
+												<tr>
+												{{/if}}
+													<td>
+														<div class="min_h">
+														<span class="date {{#if dayFlag}}today{{/if}}">
+															{{day}}<br>
+														</span>
+														{{#each dataList}}
+															{{#dateEquals workdate todate}}
+															<div onclick="getInfo({{id}});" style="cursor:pointer">● {{equipment}}</div>	
+															{{/dateEquals}}
+														{{/each}}
+														
+														</div>
+													</td>
+											{{/each}} 
+										
+											{{#each leftList}}
+												<td></td>
+											{{/each}} 
+										
+										{{/calendar}}
+							
+									</tr>				
+									
 								</tbody>
 							</table>
+							
+							
 						</div>
 					</fieldset>
 				</form>		
@@ -414,7 +193,7 @@
 	</div>
 	<!--// wrapper -->
 	<!--custom js 추가-->
-    <script src="/js/app/maintenance/eventmanage.js"></script>
+    <script src="/js/app/maintenance/eventhistory.js"></script>
     <!--//custom js-->
 </body>
 </html>

@@ -2,6 +2,7 @@ package com.sunlight.webservice.helpers;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.time.LocalDateTime;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -23,6 +24,14 @@ public class UtilHelper {
 		
 	public String replace(String val, String chr1, String chr2) {
 		return val.replace(chr1, chr2);
+	}
+	
+	public CharSequence dateEquals(String var1, String var2, Options options) throws IOException {
+		if(var1.substring(0,10).equals(var2.substring(0,10))){
+			return options.fn(this);
+		}else {
+			return options.inverse(this);	
+		}
 	}
 	
 	public CharSequence eq(String firstStr, String secondStr, Options options) throws IOException {

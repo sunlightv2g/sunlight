@@ -1,14 +1,18 @@
-var routinecheck = {
+var eventhistory = {
     init : function () {
         var _this = this;
         $('#btn-save').on('click', function () {
             _this.save();
         });
-        
 
     },
     save : function () {
-    	
+    	if($('#from1').val().trim() == ""){
+    		alert("등록일을 입력해주세요.");
+    		$('#from1').val("");
+    		$('#from1').focus();
+    		return false;
+    	}
     	if($('#equipment').val().trim() == ""){
     		alert("설비명을 입력해주세요.");
     		$('#equipment').val("");
@@ -35,12 +39,12 @@ var routinecheck = {
     	}
     	
         var data = {
-        		period: $('#period').val(),
-        		weektime: $('#weektime').val(),
+        		workdate: $('#from1').val(),
         		equipment: $('#equipment').val(),
+        		author: $('#author').val(),
         		worker: $('#worker').val(),
         		content: $('#contents').val(),
-        		author: $('#author').val(),
+        		result: $('#result').val(),
         		remark: $('#remark').val()
         	};
 
@@ -61,10 +65,8 @@ var routinecheck = {
 
 };
 
-routinecheck.init();
+eventhistory.init();
 
-function goPage(page) {
-	 var startDate = $('#from1').val().trim();
-	 var endDate = $('#to1').val().trim();
-	 top.location.href = _uri + "?page=" + page + "&startDate=" + startDate + "&endDate=" + endDate;
+function fncGoMonth(cYear, cMonth) {
+	 top.location.href = _uri + "?cYear=" + cYear + "&cMonth=" + cMonth;
 }
