@@ -28,6 +28,12 @@ public class UtilHelper {
 		return String.valueOf(rst);
 	}
 	
+	public String electric(String dbl1, double dbl2 ) {
+		double db = Double.valueOf(dbl1);
+		double rst = Math.round((db * dbl2));
+		return String.valueOf(rst);
+	}
+	
 	public String round(double val1, String val2) {
 		double db = Double.valueOf(val1);
 		double pos = Integer.parseInt(val2);
