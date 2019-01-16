@@ -54,7 +54,6 @@ public class WebController {
 	
     @GetMapping("/")
     public String main(Model model) {
-    	
     	//model.addAttribute("posts", postsService.findAllDesc());
         //return "main";
     	return "redirect:/monitoring/livemonitoring";
@@ -134,9 +133,9 @@ public class WebController {
     	model.addAttribute("totalval", totalval);
 
     	
-    	System.out.println("timeval >> " + timeval);
+    	/*System.out.println("timeval >> " + timeval);
     	System.out.println("dayflag >> " + dayflag);
-    	System.out.println("totalval >> " + totalval);
+    	System.out.println("totalval >> " + totalval);*/
     	
     	return "monitoring/livemonitoring";
     }

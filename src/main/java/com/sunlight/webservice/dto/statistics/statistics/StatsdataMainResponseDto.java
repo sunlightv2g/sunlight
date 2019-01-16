@@ -27,8 +27,6 @@ public class StatsdataMainResponseDto implements Serializable{
     private int voltage1;
     private int illumination1;
     
-    private int total;
-    private int dayflag;
 
     public StatsdataMainResponseDto(Statsdata entity) {
     	id = entity.getId();
@@ -43,8 +41,6 @@ public class StatsdataMainResponseDto implements Serializable{
     	temperature1 = entity.getTemperature1();
     	voltage1 = entity.getVoltage1();
     	illumination1 = entity.getIllumination1();
-    	total = entity.getTotal();
-    	dayflag = entity.getDayflag();
         //modifiedDate = toStringDateTime(entity.getModifiedDate());
     }
     

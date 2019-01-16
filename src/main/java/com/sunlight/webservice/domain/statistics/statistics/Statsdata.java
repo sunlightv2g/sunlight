@@ -67,14 +67,8 @@ public class Statsdata implements Serializable{
     @Column
     private int illumination1;	// S1 온도
     
-    @Transient
-    private int total;
-    
-    @Transient
-    private int dayflag;	
-    
     @Builder
-    public Statsdata(long id, String userid, double avoltage, double acurrent, double bvoltage, double bcurrent, double cvoltage, double ccurrent, int rssi1, int temperature1, int voltage1, int illumination1, int total, int dayflag) {
+    public Statsdata(long id, String userid, double avoltage, double acurrent, double bvoltage, double bcurrent, double cvoltage, double ccurrent, int rssi1, int temperature1, int voltage1, int illumination1) {
     	this.id = id;
     	this.userid = userid;
     	this.avoltage = avoltage;
@@ -87,8 +81,6 @@ public class Statsdata implements Serializable{
         this.temperature1 = temperature1;
         this.voltage1 = voltage1;
         this.illumination1 = illumination1;
-        this.total = total;
-        this.dayflag = dayflag;
     }
     
     private double getElectric(double dble, double voltage, double current) {
