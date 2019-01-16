@@ -28,7 +28,7 @@ public class UtilHelper {
 		return String.valueOf(rst);
 	}
 	
-	public String electric(String dbl1, double dbl2 ) {
+	public String electric2(String dbl1, int dbl2 ) {
 		double db = Double.valueOf(dbl1);
 		double rst = Math.round((db * dbl2));
 		return String.valueOf(rst);
