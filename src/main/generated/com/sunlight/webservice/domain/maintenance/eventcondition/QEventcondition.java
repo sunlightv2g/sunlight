@@ -21,27 +21,25 @@ public class QEventcondition extends EntityPathBase<Eventcondition> {
 
     public final com.sunlight.webservice.domain.QBaseTimeEntity _super = new com.sunlight.webservice.domain.QBaseTimeEntity(this);
 
-    public final StringPath author = createString("author");
-
-    public final StringPath content = createString("content");
-
     //inherited
     public final DateTimePath<java.time.LocalDateTime> createdDate = _super.createdDate;
 
     public final StringPath equipment = createString("equipment");
+
+    public final StringPath flag = createString("flag");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> modifiedDate = _super.modifiedDate;
 
-    public final StringPath remark = createString("remark");
+    public final StringPath name = createString("name");
 
-    public final StringPath result = createString("result");
+    public final StringPath place = createString("place");
+
+    public final StringPath status = createString("status");
 
     public final StringPath workdate = createString("workdate");
-
-    public final StringPath worker = createString("worker");
 
     public QEventcondition(String variable) {
         super(Eventcondition.class, forVariable(variable));
