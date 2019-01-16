@@ -1,4 +1,4 @@
-package com.sunlight.webservice.domain.maintenance.eventhistory;
+package com.sunlight.webservice.domain.maintenance.eventcondition;
 
 import java.io.Serializable;
 
@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
-public class Eventhistory extends BaseTimeEntity implements Serializable{
+public class Eventcondition extends BaseTimeEntity implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -29,33 +29,28 @@ public class Eventhistory extends BaseTimeEntity implements Serializable{
     private String workdate;
     
     @Column(length = 255, nullable = false)
+    private String place;
+    
+    @Column(length = 255, nullable = false)
     private String equipment;
     
     @Column(length = 255, nullable = false)
-    private String author;
+    private String flag;
     
     @Column(length = 255, nullable = false)
-    private String worker;
+    private String name;
     
-    @Column(columnDefinition = "TEXT", nullable = false)
-    private String content;
+    @Column(length = 255, nullable = false)
+    private String status;
     
-    @Column(columnDefinition = "TEXT", nullable = false)
-    private String result;
-
-    @Column(length = 255, nullable = true)
-    private String remark;
-    
-
     @Builder
-    public Eventhistory(long id, String workdate, String equipment, String author, String worker, String content, String result, String remark) {
+    public Eventcondition(long id, String workdate, String place, String equipment, String flag, String name, String status) {
     	this.id = id;
     	this.workdate = workdate;
+    	this.place = place;
     	this.equipment = equipment;
-        this.author = author;
-        this.worker = worker;
-        this.content = content;
-        this.result = result;
-        this.remark = remark;
+        this.flag = flag;
+        this.name = name;
+        this.status = status;
     }
 }

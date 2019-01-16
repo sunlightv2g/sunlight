@@ -22,6 +22,28 @@ public class UtilHelper {
 		return df.format(val);
 	}
 		
+	public String electric(String dbl1, double dbl2, double dbl3 ) {
+		double db = Double.valueOf(dbl1);
+		double rst = Math.round((db * dbl2 * dbl3));
+		return String.valueOf(rst);
+	}
+	
+	public String round(double val1, String val2) {
+		double db = Double.valueOf(val1);
+		double pos = Integer.parseInt(val2);
+		double result = 0.0;
+        double half = 0.5;
+        double factor = 1;
+       
+        for (int i = 0; i< pos; i++){
+            half *= 0.1;
+            factor *= 10;
+        }
+        result = (int)((db+half)*factor)/(double)factor;
+
+		return String.valueOf(result);
+	}
+	
 	public String replace(String val, String chr1, String chr2) {
 		return val.replace(chr1, chr2);
 	}

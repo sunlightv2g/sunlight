@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.sunlight.webservice.domain.maintenance.eventhistory.Eventhistory;
 import com.sunlight.webservice.domain.maintenance.eventhistory.EventhistoryRepository;
 import com.sunlight.webservice.dto.environment.userinfo.UserinfoSaveRequestDto;
 import com.sunlight.webservice.dto.maintenance.eventhistory.EventhistoryMainResponseDto;
@@ -29,8 +30,13 @@ public class EventhistoryService {
     }
     
     @Transactional(readOnly = true)
-    public EventhistoryMainResponseDto getEventhistoryByQueryDSL(Long id) {
-        return eventhistoryRepository.getEventhistoryByQuerydsl(id);
+    public Eventhistory getEventhistoryByQueryDSL(long id) {
+        return eventhistoryRepository.findOne(id);
+    }
+    
+    @Transactional
+    public void getEventhistoryDelete(long id) {
+    	eventhistoryRepository.delete(id);
     }
     
     @Transactional(readOnly = true)

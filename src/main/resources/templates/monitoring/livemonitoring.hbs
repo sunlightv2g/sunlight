@@ -37,7 +37,7 @@
 							<h3 class="tit">시간대별 발전량</h3>
 						</div>
 						<div class="chart_box02">
-						    <div style="font-size:24px;font-family:malgun gothic;font-weight:bold;color:#000;text-align:center">Total 발전량 <span style="color:#3366cc">5,444</span> kWh</div> 
+						    <div style="font-size:24px;font-family:malgun gothic;font-weight:bold;color:#000;text-align:center">Total 발전량 <span style="color:#3366cc">{{formatNumber totalval}}</span> kWh</div> 
 							<div id="chart01" style="min-width: 310px; height: 340px; margin: 0 auto"></div>
 						</div>
 					</div>
@@ -51,28 +51,28 @@
 										<div class="img_thum03"><img src="/images/sub/sun_img01.png"></div>
 										<div class="txt_thum2">
 												<span style="color:#3399cc;">●</span> 문백보건지소><br>
-											    <span class="txt_kWh">140</span> kWh
+											    <span class="txt_kWh">{{rstTotal1}}</span> kWh
 										</div>
 									</li>
 									<li>
 										<div class="img_thum03"><img src="/images/sub/sun_img01.png"></div>
 										<div class="txt_thum2">
 											<span style="color:#ff0000">●</span> 광혜원보건지소><br>
-										<span class="txt_kWh">180</span> kWh
+										<span class="txt_kWh">{{rstTotal2}}</span> kWh
 										</div>
 									</li>
 									<li>
 										<div class="img_thum03"><img src="/images/sub/sun_img01.png"></div>
 										<div class="txt_thum2">
 											<span style="color:#3399cc">●</span> 서울에너지공사<br>
-											<span class="txt_kWh">250</span> kWh
+											<span class="txt_kWh">{{rstTotal3}}</span> kWh
 										</div>
 									</li>
 									<li>
 										<div class="img_thum03"><img src="/images/sub/sun_img01.png"></div>
 										<div class="txt_thum2">
 											<span>●</span> 신포천변전소<br>
-											<span class="txt_kWh">569</span> kWh
+											<span class="txt_kWh">{{rstTotal4}}</span> kWh
 										</div>
 									</li>
 								</ul>
@@ -86,8 +86,8 @@
 					<div class="tbl_left"><h3 class="tit2">이벤트 현황</h3></div>
 						<div class="tbl_right">
 	                        <i class="fa fa-file-text-o"></i>
-							<strong>전체 201</strong>
-							<span>(1/32 page)</span>
+							<strong>전체 {{formatNumber totlalCount}} </strong>
+							<span>({{currentPage}}/{{totlalPageCount}} page)</span>
 						</div>
 					</div>
 					<div class="table_warp">
@@ -112,23 +112,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>2018.11.02 11:01:45</td>
-									<td>경기도 성남시</td>
-									<td>태양광 발전소</td>
-									<td>설비시설</td>
-									<td>S1 부족전압</td>
-									<td><span class="tag02 tag_bg_orange">발생</span></td>
-								</tr>
-								<tr>
-									<td>2018.11.02 11:01:45</td>
-									<td>경기도 성남시</td>
-									<td>태양광 발전소</td>
-									<td>설비시설</td>
-									<td>S1 부족전압</td>
-									<td><span class="tag02 tag_bg_orange">발생</span></td>
-								</tr>
-								<tr>
+							<!-- <tr>
 									<td>2018.11.02 11:01:45</td>
 									<td>경기도 성남시</td>
 									<td>태양광 발전소</td>
@@ -143,73 +127,28 @@
 									<td>설비시설</td>
 									<td>S1 부족전압</td>
 									<td><span class="tag02 tag_bg_blue">회복</span></td>
-								</tr>
+								</tr> -->
+							{{#each dataList}}
 								<tr>
-									<td>2018.11.02 11:01:45</td>
-									<td>경기도 성남시</td>
-									<td>태양광 발전소</td>
-									<td>설비시설</td>
-									<td>S1 부족전압</td>
-									<td><span class="tag02 tag_bg_blue">회복</span></td>
+									<td>{{replace workdate "T" " "}}</td>
+									<td>{{place}}</td>
+									<td>{{equipment}}</td>
+									<td>{{flag}}</td>
+									<td>{{name}}</td>
+									<td><span class="tag02 tag_bg_orange">{{status}}</span></td>
 								</tr>
+							{{/each}}
+							{{#eqLong totlalCount 0}}
 								<tr>
-									<td>2018.11.02 11:01:45</td>
-									<td>경기도 성남시</td>
-									<td>태양광 발전소</td>
-									<td>설비시설</td>
-									<td>S1 부족전압</td>
-									<td><span class="tag02 tag_bg_blue">회복</span></td>
+									<td colspan="6">등록/검색된 결과가 없습니다.</td>
 								</tr>
-								<tr>
-									<td>2018.11.02 11:01:45</td>
-									<td>경기도 성남시</td>
-									<td>태양광 발전소</td>
-									<td>설비시설</td>
-									<td>S1 부족전압</td>
-									<td><span class="tag02 tag_bg_blue">회복</span></td>
-								</tr>
-								<tr>
-									<td>2018.11.02 11:01:45</td>
-									<td>경기도 성남시</td>
-									<td>태양광 발전소</td>
-									<td>설비시설</td>
-									<td>S1 부족전압</td>
-									<td><span class="tag02 tag_bg_blue">회복</span></td>
-								</tr>
-								<tr>
-									<td>2018.11.02 11:01:45</td>
-									<td>경기도 성남시</td>
-									<td>태양광 발전소</td>
-									<td>설비시설</td>
-									<td>S1 부족전압</td>
-									<td><span class="tag02 tag_bg_blue">회복</span></td>
-								</tr>
-								<tr>
-									<td>2018.11.02 11:01:45</td>
-									<td>경기도 성남시</td>
-									<td>태양광 발전소</td>
-									<td>설비시설</td>
-									<td>S1 부족전압</td>
-									<td><span class="tag02 tag_bg_blue">회복</span></td>
-								</tr>
+							{{/eqLong}}	
 							</tbody>
 						</table>
 					</div>
 					<!-- // tbl -->
 					<!-- paging -->
-					<div class="paging_wrap">
-					    <div class="paging">
-					        <a href="#" class="btn_page first">목록 처음으로 이동</a>
-					        <a href="#" class="btn_page prev">이전 페이지로 이동</a>
-					        <strong class="page_num">1</strong>
-					        <a href="#">2</a>
-					        <a href="#">3</a>
-					        <a href="#">4</a>
-					        <a href="#">5</a>
-					        <a href="#" class="btn_page next">다음 페이지로 이동</a>
-					        <a href="#" class="btn_page last">목록 마지막으로 이동</a>
-					    </div>
-					</div>
+					{{>include/pagination}}
 					<!-- //paging -->
 
 				
@@ -238,7 +177,7 @@
 		                  enabled: false
 		                },
 		                xAxis: {
-		                    categories: ['01', '02', '03', '04', '05','06', '07', '08', '09', '10','11', '12', '13', '14', '15','16', '17', '18', '18', '19','20', '21', '22', '23' ]
+		                    categories: [{{{dayflag}}}]
 		                },
 		                yAxis: {
 		                    title: {
@@ -256,7 +195,7 @@
 
 		                series: [{
 		                    name: '발전량',
-		                    data: [126, 236, 257, 270, 264,146, 255, 243, 456, 525,452, 343, 320, 245, 226,124, 236, 252, 265, 225,123, 234, 123, 245]
+		                    data: [{{{timeval}}}]
 		
 		                }]
 	                });
@@ -271,52 +210,8 @@
 		<!--// footer -->
 	</div>
 	<!--// wrapper -->
-	<script type="text/javascript">
-		//시간대별 발전량
-		Highcharts.chart('chart01', {
-			colors: [
-            '#436ffe', '#fe4365'],
-            plotOptions: {
-                column: {
-                    colorByPoint: true
-                }
-            },
-            chart: {
-                type: 'line'
-            },
-            title: false,
-            subtitle:false,
-               navigation: {
-                    buttonOptions: {
-                         y: -1000
-                    }
-               },
-            credits: {
-              enabled: false
-            },
-            xAxis: {
-                categories: ['01', '02', '03', '04', '05','06', '07', '08', '09', '10','11', '12', '13', '14', '15','16', '17', '18', '18', '19','20', '21', '22', '23' ]
-            },
-            yAxis: {
-                title: {
-                    text: '전력(kW)'
-                }
-            },
-            plotOptions: {
-                line: {
-                    dataLabels: {
-                        enabled: true
-                    },
-                    enableMouseTracking: false
-                }
-            },
-
-            series: [{
-                name: '발전량',
-                data: [126, 236, 257, 270, 264,146, 255, 243, 456, 525,452, 343, 320, 245, 226,124, 236, 252, 265, 225,123, 234, 123, 245]
-
-            }]
-           });
-	</script>
+	<!--custom js 추가-->
+    <script src="/js/app/monitoring/livemonitoring.js"></script>
+    <!--//custom js-->
 </body>
 </html>

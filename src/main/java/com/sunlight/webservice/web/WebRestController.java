@@ -6,12 +6,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.core.env.Environment;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sunlight.webservice.domain.maintenance.eventhistory.Eventhistory;
 import com.sunlight.webservice.dto.environment.routinecheck.RoutinecheckSaveRequestDto;
 import com.sunlight.webservice.dto.environment.userinfo.UserinfoSaveRequestDto;
 import com.sunlight.webservice.dto.environment.userinfo.UserinfoSearchRequestDto;
@@ -62,6 +66,30 @@ public class WebRestController {
 		routinecheckService.save(dto);	
     }
     
+    @PutMapping("/environment/routinecheck")
+    public void routinecheckUpdate(@RequestBody RoutinecheckSaveRequestDto dto){
+    	routinecheckService.update(dto);	
+    }
+    
+    @DeleteMapping("/environment/routinecheck/{id}")
+    @ResponseBody
+    public void routinecheckDelete(@PathVariable long id) {
+    	routinecheckService.getRoutinecheckDelete(id);
+    }
+    
+    @GetMapping("/maintenance/eventhistory/{id}")
+    @ResponseBody
+    public Eventhistory eventhistoryFindOne(@PathVariable long id) {
+        return eventhistoryService.getEventhistoryByQueryDSL(id);
+    }
+    
+    @DeleteMapping("/maintenance/eventhistory/{id}")
+    @ResponseBody
+    public void eventhistoryDelete(@PathVariable long id) {
+    	System.out.println("삭제 : id : " + id);
+    	eventhistoryService.getEventhistoryDelete(id);
+    }
+    
     @PostMapping("/maintenance/eventhistory")
     public void eventhistorySave(@RequestBody EventhistorySaveRequestDto dto){
     	eventhistoryService.save(dto);	
@@ -75,6 +103,12 @@ public class WebRestController {
     @PostMapping("/environment/userinfo")
     public void userinfoSave(@RequestBody UserinfoSaveRequestDto dto){
     	userinfoService.save(dto);	
+    }
+    
+    @DeleteMapping("/environment/userinfo/{id}")
+    @ResponseBody
+    public void userinfoDelete(@PathVariable long id) {
+    	userinfoService.getUserinfoDelete(id);
     }
     
     @PutMapping("/environment/userinfo")

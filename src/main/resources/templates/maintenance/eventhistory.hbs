@@ -52,7 +52,7 @@
 									<tbody>
 										<tr>
 											<th scope="row">등록일</th>
-											<td colspan="3">
+											<td colspan="3"><input type="text" id="id" class="text w78p"/>
 												<span class="calendar_input"><input type="text" id="from1" class="text w78p"/></span>
 											</td>
 										</tr>
@@ -94,9 +94,14 @@
 								</table>
 							</div>
 							<!-- // tbl -->
-							<div class="mar_t20 pop_footer">
+							<div class="mar_t20 pop_footer" id="divInsert">
 								<a href="#" class="btn btn_w155 btn_sky"  id="btn-save">등록</a>
 								<a href="#" onclick="view_hide(1);" class="btn btn_w155 btn_gray02">취소</a>
+							</div>
+							
+							<div class="mar_t20 pop_footer" id="divEdit">
+								<a href="#" onclick="editInfo();" class="btn btn_w155 btn_sky">수정</a>
+								<a href="#" onclick="deleteInfo();" class="btn btn_w155 btn_gray02">삭제</a>
 							</div>
 
 						</div>
@@ -115,7 +120,7 @@
 							<a class="mar_r15 bgPrev" href="javascript:fncGoMonth('{{search.pYear}}','{{search.pMonth}}');">이전달</a>
 							<span class="inlineBlock marL5">{{search.cYear}}년</span> <span class="inlineBlock marL5 marR10">{{search.cMonth}}월</span>
 							<a class="mar_l20 bgNext" href="javascript:fncGoMonth('{{search.nYear}}','{{search.nMonth}}');">다음달</a>
-							<div class="tbl_right"><a href="#dispay_view1" onclick="view_show(1);" class="btn btn_w155 btn_sky">신규등록</a></div>
+							<div class="tbl_right"><a href="#dispay_view1" onclick="insertInfo();" class="btn btn_w155 btn_sky">신규등록</a></div>
 						</div>
 						<div class="mar_b20">
 							<table class="table calMeal">

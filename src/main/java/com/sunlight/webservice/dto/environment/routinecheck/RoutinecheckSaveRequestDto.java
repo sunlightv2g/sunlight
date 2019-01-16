@@ -16,6 +16,7 @@ public class RoutinecheckSaveRequestDto implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
+	private long id;
     private String period;
     private String weektime;
     private String equipment;
@@ -25,7 +26,8 @@ public class RoutinecheckSaveRequestDto implements Serializable{
     private String author;
 
     @Builder
-    public RoutinecheckSaveRequestDto(String period, String weektime, String equipment, String worker, String content, String remark, String author) {
+    public RoutinecheckSaveRequestDto(long id, String period, String weektime, String equipment, String worker, String content, String remark, String author) {
+    	this.id = id;
         this.period = period;
         this.weektime = weektime;
         this.equipment = equipment;
@@ -37,6 +39,7 @@ public class RoutinecheckSaveRequestDto implements Serializable{
     
     public Routinecheck toEntity(){
         return Routinecheck.builder()
+        		.id(id)
         		.period(period)
         		.weektime(weektime)
         		.equipment(equipment)

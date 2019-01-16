@@ -37,6 +37,12 @@ public class UserinfoService {
         return userinfoRepository.getUserinfoByQuerydsl(userid);
     }
     
+    
+    @Transactional
+    public void getUserinfoDelete(long id) {
+    	userinfoRepository.delete(id);
+    }
+    
     @Transactional(readOnly = true)
     public long getUserinfo(String userid,String userpass ) {
     	return userinfoRepository.getUserinfoByQuerydsl(userid, userpass);

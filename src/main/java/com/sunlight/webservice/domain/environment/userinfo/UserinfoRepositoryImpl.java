@@ -75,7 +75,6 @@ public class UserinfoRepositoryImpl extends QueryDslRepositorySupport implements
 	        }
         }
         
-        
         query.orderBy(userinfo.id.desc());
         query.offset(pageable.getOffset());
         query.limit(pageable.getPageSize());
@@ -85,7 +84,7 @@ public class UserinfoRepositoryImpl extends QueryDslRepositorySupport implements
         
         return new PageImpl<>(result, pageable, totalCount);
     }
-	
+		
 	@Override
 	public long update(Userinfo entity) {
     	QUserinfo userinfo = QUserinfo.userinfo;

@@ -44,9 +44,10 @@ public class Routinecheck extends BaseTimeEntity implements Serializable{
     private String remark;
     
     private String author;
-
+    
     @Builder
-    public Routinecheck(String period, String weektime, String equipment, String worker, String content, String remark, String author) {
+    public Routinecheck(long id, String period, String weektime, String equipment, String worker, String content, String remark, String author) {
+    	this.id = id;
     	this.period = period;
         this.weektime = weektime;
         this.equipment = equipment;

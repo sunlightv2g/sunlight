@@ -6,8 +6,7 @@ import com.sunlight.webservice.dto.maintenance.eventhistory.EventhistoryMainResp
 import com.sunlight.webservice.dto.maintenance.eventhistory.EventhistorySearchRequestDto;
 
 public interface EventhistoryCustom {
-
-	EventhistoryMainResponseDto getEventhistoryByQuerydsl(Long id);
+	/*EventhistoryMainResponseDto getEventhistoryByQuerydsl(long id);*/
     List<EventhistoryMainResponseDto> getEventhistoryList(EventhistorySearchRequestDto eventhistorySearchResponseDto);
-	long update(Eventhistory entity);    	
+	long update(Eventhistory entity);    
 }

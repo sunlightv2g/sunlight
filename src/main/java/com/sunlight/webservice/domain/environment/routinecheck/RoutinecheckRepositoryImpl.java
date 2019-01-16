@@ -16,7 +16,10 @@ import org.springframework.stereotype.Repository;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.JPQLQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import com.querydsl.jpa.impl.JPAUpdateClause;
 import com.sunlight.webservice.domain.environment.routinecheck.QRoutinecheck;
+import com.sunlight.webservice.domain.maintenance.eventhistory.Eventhistory;
+import com.sunlight.webservice.domain.maintenance.eventhistory.QEventhistory;
 import com.sunlight.webservice.dto.environment.routinecheck.RoutinecheckMainResponseDto;
 import com.sunlight.webservice.dto.environment.routinecheck.RoutinecheckSearchRequestDto;
 
@@ -101,4 +104,23 @@ public class RoutinecheckRepositoryImpl extends QueryDslRepositorySupport implem
         		
         return new PageImpl<>(result, pageable, totalCount);
     }
+	
+	@Override
+	public long update(Routinecheck entity) {
+		 QRoutinecheck routinecheck = QRoutinecheck.routinecheck;
+    	
+    	long rstCnt = new JPAUpdateClause(entityManager, routinecheck).where(routinecheck.id.eq(entity.getId()))
+        .set(routinecheck.period, entity.getPeriod())
+        .set(routinecheck.weektime, entity.getWeektime())
+        .set(routinecheck.equipment, entity.getEquipment())
+        .set(routinecheck.author, entity.getAuthor())
+        .set(routinecheck.worker, entity.getWorker())
+        .set(routinecheck.content, entity.getContent())
+        .set(routinecheck.remark, entity.getRemark())
+        .execute();
+    	    	
+    	return rstCnt;
+		
+	}
+	
 }

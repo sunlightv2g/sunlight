@@ -156,8 +156,8 @@ function view_show(num,flag,that) {
     document.getElementById("js-popup-bg").style.display = "block";
     if(flag == "join"){
   	  $('#divUserRole').hide();
-  	  $('#btnMemberRegist').show();
-  	  $('#btnMemberEdit').hide();
+  	  $('#userInsert').show();
+  	  $('#userEdit').hide();
   	  $('#btnUseridChk').show();
   	  
 	  $('#id').val("");
@@ -172,8 +172,8 @@ function view_show(num,flag,that) {
 	  
     }else if(flag == "edit"){
       $('#divUserRole').show();
-	  $('#btnMemberRegist').hide();
-	  $('#btnMemberEdit').show();
+	  $('#userInsert').hide();
+	  $('#userEdit').show();
 	  $('#btnUseridChk').hide();
 	  
 	  var td = that.children;
@@ -276,7 +276,7 @@ function checkId(){
     });
 }
 
-function regsit(){
+function userRegist(){
 	
 	if($('#userid').val().trim() == ""){
 		alert("아이디를 입력해주세요.");
@@ -343,7 +343,7 @@ function regsit(){
 	
 }
 
-function edit(){
+function userEdit(){
 	
 	if($('#userid').val().trim() == ""){
 		alert("아이디를 입력해주세요.");
@@ -384,6 +384,27 @@ function edit(){
 	}).fail(function (error) {
 		alert(error);
 	});
+	
+}
+
+function userDelete(){
+	var id = $('#id').val();
+	console.log("id : " + id);
+    if(!confirm("정말 삭제하시겠습니까? 삭제된 데이터는 복구 하실 수 없습니다.")){
+    	return false;
+    }
+    $.ajax({
+    	 type: 'DELETE',
+         url: "/environment/userinfo/"+id,
+        dataType: 'text',
+        contentType:'application/json; charset=utf-8'
+    }).done(function() {
+        alert('삭제되었습니다.');
+        top.location.reload();
+        //routinecheck.list();
+    }).fail(function (error) {
+        alert(error);
+    });
 	
 }
 

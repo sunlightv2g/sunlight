@@ -35,8 +35,9 @@ public class EventhistoryRepositoryImpl extends QueryDslRepositorySupport implem
         super(Eventhistory.class);
     }
 
-    @Override
-    public EventhistoryMainResponseDto getEventhistoryByQuerydsl(Long id) {
+    
+    /*@Override
+    public EventhistoryMainResponseDto getEventhistoryByQuerydsl(long id) {
 
         JPAQueryFactory queryFactory = new JPAQueryFactory(this.getEntityManager());
 
@@ -44,17 +45,20 @@ public class EventhistoryRepositoryImpl extends QueryDslRepositorySupport implem
 
         return queryFactory.select(
         		Projections.constructor(EventhistoryMainResponseDto.class, 
-        				eventhistory.equipment
+        				eventhistory.id
+        				, eventhistory.workdate
+        				, eventhistory.equipment
         				, eventhistory.author
         				, eventhistory.worker
         				, eventhistory.content
         				, eventhistory.result
         				, eventhistory.remark
+        				, eventhistory.modifiedDate
         				))
                 .from(eventhistory)
                 .where(eventhistory.id.eq(id)).fetchOne();
 
-    }
+    }*/
 
 	@Override
     public List<EventhistoryMainResponseDto> getEventhistoryList(EventhistorySearchRequestDto eventhistorySearchResponseDto)  {

@@ -16,6 +16,7 @@ public class EventhistorySaveRequestDto implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
+	private long id;
 	private String workdate;
     private String equipment;
     private String author;
@@ -25,7 +26,8 @@ public class EventhistorySaveRequestDto implements Serializable{
     private String remark;
 
     @Builder
-    public EventhistorySaveRequestDto(String workdate, String equipment, String author, String worker, String content, String result, String remark) {
+    public EventhistorySaveRequestDto(long id, String workdate, String equipment, String author, String worker, String content, String result, String remark) {
+    	this.id = id;
     	this.workdate = workdate;
         this.equipment = equipment;
         this.author = author;
@@ -37,6 +39,7 @@ public class EventhistorySaveRequestDto implements Serializable{
     
     public Eventhistory toEntity(){
         return Eventhistory.builder()
+        		.id(id)
         		.workdate(workdate)
         		.equipment(equipment)
         		.author(author)

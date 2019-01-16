@@ -59,25 +59,25 @@
 															<th> 분류</th>
 															<th> 전압</th>
 															<th> 전류</th>
-															<th> 통신</th>
+															<th> 전력</th>
 														</tr>
 														<tr>
 															<td> A상</td>
-															<td> 234 V</td>
-															<td> 234 A</td>
-															<td> 512 kW</td>
+															<td> {{round rstStats1.avoltage "1"}} V</td>
+															<td> {{round rstStats1.acurrent "3"}} A</td>
+															<td> {{electric "0.173" rstStats1.avoltage rstStats1.acurrent}} kW</td>
 														</tr>
 														<tr>
 															<td> B상</td>
-															<td> 234 V</td>
-															<td> 234 A</td>
-															<td> 512 kW</td>
+															<td> {{round rstStats1.bvoltage "1"}} V</td>
+															<td> {{round rstStats1.bcurrent "3"}} A</td>
+															<td> {{electric "0.174" rstStats1.bvoltage rstStats1.bcurrent}} kW</td>
 														</tr>
 														<tr>
 															<td> C상</td>
-															<td> 234 V</td>
-															<td> 234 A</td>
-															<td> 512 kW</td>
+															<td> {{round rstStats1.cvoltage "1"}} V</td>
+															<td> {{round rstStats1.ccurrent "3"}} A</td>
+															<td> {{electric "0.175" rstStats1.cvoltage rstStats1.ccurrent}} kW</td>
 														</tr>
 												</table>
 											</div>
@@ -92,19 +92,19 @@
 														</tr>
 														<tr>
 															<th> 전압</th>
-															<td> 234 V</td>
+															<td> {{rstStats1.rssi1}} V</td>
 														</tr>
 														<tr>
 															<th> 전류</th>
-															<td> 152 A</td>
+															<td> {{rstStats1.temperature1}} A</td>
 														</tr>
 														<tr>
 															<th>조도</th>
-															<td> 56 </td>
+															<td> {{rstStats1.voltage1}} </td>
 														</tr>
 														<tr>
 															<th>온도</th>
-															<td> 21 ℃</td>
+															<td> {{rstStats1.illumination1}} ℃</td>
 														</tr>
 												</table>
 											</div>
@@ -114,7 +114,7 @@
 									    <div style="padding-bottom:30px">
 											<table style="border:1px solid #336699;width:585px;">
 												<tr>
-													<td style="text-align:center;padding:10px;background:#336699;color:#fff;font-size:16px;;font-weight:bold;"> 문백보건지소</td>
+													<td style="text-align:center;padding:10px;background:#336699;color:#fff;font-size:16px;;font-weight:bold;"> 광혜원보건지소</td>
 													<td style="text-align:center"> <span style="color:#3399cc;">●</span> 정상  <span style="color:#cc0000;padding-left:30px">●</span> 이상 <span style="color:#000;padding-left:30px">●</span> 통신</td>
 												</tr>
 											</table>
@@ -133,25 +133,25 @@
 															<th> 분류</th>
 															<th> 전압</th>
 															<th> 전류</th>
-															<th> 통신</th>
+															<th> 전력</th>
 														</tr>
 														<tr>
 															<td> A상</td>
-															<td> 234 V</td>
-															<td> 234 A</td>
-															<td> 512 kW</td>
+															<td> {{round rstStats2.avoltage "1"}} V</td>
+															<td> {{round rstStats2.acurrent "3"}} A</td>
+															<td> {{electric "0.173" rstStats2.avoltage rstStats2.acurrent}} kW</td>
 														</tr>
 														<tr>
 															<td> B상</td>
-															<td> 234 V</td>
-															<td> 234 A</td>
-															<td> 512 kW</td>
+															<td> {{round rstStats2.bvoltage "1"}} V</td>
+															<td> {{round rstStats2.bcurrent "3"}} A</td>
+															<td> {{electric "0.174" rstStats2.bvoltage rstStats2.bcurrent}} kW</td>
 														</tr>
 														<tr>
 															<td> C상</td>
-															<td> 234 V</td>
-															<td> 234 A</td>
-															<td> 512 kW</td>
+															<td> {{round rstStats2.cvoltage "1"}} V</td>
+															<td> {{round rstStats2.ccurrent "3"}} A</td>
+															<td> {{electric "0.175" rstStats2.cvoltage rstStats2.ccurrent}} kW</td>
 														</tr>
 												</table>
 											</div>
@@ -166,19 +166,19 @@
 														</tr>
 														<tr>
 															<th> 전압</th>
-															<td> 234 V</td>
+															<td> {{rstStats2.rssi1}} V</td>
 														</tr>
 														<tr>
 															<th> 전류</th>
-															<td> 152 A</td>
+															<td> {{rstStats2.temperature1}} A</td>
 														</tr>
 														<tr>
 															<th>조도</th>
-															<td> 56 </td>
+															<td> {{rstStats2.voltage1}} </td>
 														</tr>
 														<tr>
 															<th>온도</th>
-															<td> 21 ℃</td>
+															<td> {{rstStats2.illumination1}} ℃</td>
 														</tr>
 												</table>
 											</div>
@@ -188,7 +188,7 @@
 									    <div style="padding-bottom:30px">
 											<table style="border:1px solid #336699;width:585px;">
 												<tr>
-													<td style="text-align:center;padding:10px;background:#336699;color:#fff;font-size:16px;;font-weight:bold;"> 문백보건지소</td>
+													<td style="text-align:center;padding:10px;background:#336699;color:#fff;font-size:16px;;font-weight:bold;"> 서울에너지공사</td>
 													<td style="text-align:center"> <span style="color:#3399cc;">●</span> 정상  <span style="color:#cc0000;padding-left:30px">●</span> 이상 <span style="color:#000;padding-left:30px">●</span> 통신</td>
 												</tr>
 											</table>
@@ -207,25 +207,25 @@
 															<th> 분류</th>
 															<th> 전압</th>
 															<th> 전류</th>
-															<th> 통신</th>
+															<th> 전력</th>
 														</tr>
 														<tr>
 															<td> A상</td>
-															<td> 234 V</td>
-															<td> 234 A</td>
-															<td> 512 kW</td>
+															<td> {{round rstStats3.avoltage "1"}} V</td>
+															<td> {{round rstStats3.acurrent "3"}} A</td>
+															<td> {{electric "0.173" rstStats3.avoltage rstStats3.acurrent}} kW</td>
 														</tr>
 														<tr>
 															<td> B상</td>
-															<td> 234 V</td>
-															<td> 234 A</td>
-															<td> 512 kW</td>
+															<td> {{round rstStats3.bvoltage "1"}} V</td>
+															<td> {{round rstStats3.bcurrent "3"}} A</td>
+															<td> {{electric "0.174" rstStats3.bvoltage rstStats3.bcurrent}} kW</td>
 														</tr>
 														<tr>
 															<td> C상</td>
-															<td> 234 V</td>
-															<td> 234 A</td>
-															<td> 512 kW</td>
+															<td> {{round rstStats3.cvoltage "1"}} V</td>
+															<td> {{round rstStats3.ccurrent "3"}} A</td>
+															<td> {{electric "0.175" rstStats3.cvoltage rstStats3.ccurrent}} kW</td>
 														</tr>
 												</table>
 											</div>
@@ -240,19 +240,19 @@
 														</tr>
 														<tr>
 															<th> 전압</th>
-															<td> 234 V</td>
+															<td> {{rstStats3.rssi1}} V</td>
 														</tr>
 														<tr>
 															<th> 전류</th>
-															<td> 152 A</td>
+															<td> {{rstStats3.temperature1}} A</td>
 														</tr>
 														<tr>
 															<th>조도</th>
-															<td> 56 </td>
+															<td> {{rstStats3.voltage1}} </td>
 														</tr>
 														<tr>
 															<th>온도</th>
-															<td> 21 ℃</td>
+															<td> {{rstStats3.illumination1}} ℃</td>
 														</tr>
 												</table>
 											</div>
@@ -262,7 +262,7 @@
 									    <div style="padding-bottom:30px">
 											<table style="border:1px solid #336699;width:585px;">
 												<tr>
-													<td style="text-align:center;padding:10px;background:#336699;color:#fff;font-size:16px;;font-weight:bold;"> 문백보건지소</td>
+													<td style="text-align:center;padding:10px;background:#336699;color:#fff;font-size:16px;;font-weight:bold;"> 신포천변전소</td>
 													<td style="text-align:center"> <span style="color:#3399cc;">●</span> 정상  <span style="color:#cc0000;padding-left:30px">●</span> 이상 <span style="color:#000;padding-left:30px">●</span> 통신</td>
 												</tr>
 											</table>
@@ -281,25 +281,25 @@
 															<th> 분류</th>
 															<th> 전압</th>
 															<th> 전류</th>
-															<th> 통신</th>
+															<th> 전력</th>
 														</tr>
 														<tr>
 															<td> A상</td>
-															<td> 234 V</td>
-															<td> 234 A</td>
-															<td> 512 kW</td>
+															<td> {{round rstStats4.avoltage "1"}} V</td>
+															<td> {{round rstStats4.acurrent "3"}} A</td>
+															<td> {{electric "0.173" rstStats4.avoltage rstStats4.acurrent}} kW</td>
 														</tr>
 														<tr>
 															<td> B상</td>
-															<td> 234 V</td>
-															<td> 234 A</td>
-															<td> 512 kW</td>
+															<td> {{round rstStats4.bvoltage "1"}} V</td>
+															<td> {{round rstStats4.bcurrent "2"}} A</td>
+															<td> {{electric "0.174" rstStats4.bvoltage rstStats4.bcurrent}} kW</td>
 														</tr>
 														<tr>
 															<td> C상</td>
-															<td> 234 V</td>
-															<td> 234 A</td>
-															<td> 512 kW</td>
+															<td> {{round rstStats4.cvoltage "1"}} V</td>
+															<td> {{round rstStats4.ccurrent "3"}} A</td>
+															<td> {{electric "0.175" rstStats4.cvoltage rstStats4.ccurrent}} kW</td>
 														</tr>
 												</table>
 											</div>
@@ -314,19 +314,19 @@
 														</tr>
 														<tr>
 															<th> 전압</th>
-															<td> 234 V</td>
+															<td> {{rstStats4.rssi1}} V</td>
 														</tr>
 														<tr>
 															<th> 전류</th>
-															<td> 152 A</td>
+															<td> {{rstStats4.temperature1}} A</td>
 														</tr>
 														<tr>
 															<th>조도</th>
-															<td> 56 </td>
+															<td> {{rstStats4.voltage1}} </td>
 														</tr>
 														<tr>
 															<th>온도</th>
-															<td> 21 ℃</td>
+															<td> {{rstStats4.illumination1}} ℃</td>
 														</tr>
 												</table>
 											</div>

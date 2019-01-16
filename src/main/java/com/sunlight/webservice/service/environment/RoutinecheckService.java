@@ -9,6 +9,7 @@ import com.sunlight.webservice.domain.environment.routinecheck.RoutinecheckRepos
 import com.sunlight.webservice.dto.environment.routinecheck.RoutinecheckMainResponseDto;
 import com.sunlight.webservice.dto.environment.routinecheck.RoutinecheckSaveRequestDto;
 import com.sunlight.webservice.dto.environment.routinecheck.RoutinecheckSearchRequestDto;
+import com.sunlight.webservice.dto.maintenance.eventhistory.EventhistorySaveRequestDto;
 
 import lombok.AllArgsConstructor;
 
@@ -36,6 +37,16 @@ public class RoutinecheckService {
     @Transactional(readOnly = true)
     public RoutinecheckMainResponseDto getRoutinecheckByQueryDSL(Long id) {
         return routinecheckRepository.getRoutinecheckByQuerydsl(id);
+    }
+    
+    @Transactional
+    public long update(RoutinecheckSaveRequestDto dto){
+    	return routinecheckRepository.update(dto.toEntity());
+    }
+    
+    @Transactional
+    public void getRoutinecheckDelete(long id) {
+    	routinecheckRepository.delete(id);
     }
     
     @Transactional(readOnly = true)
