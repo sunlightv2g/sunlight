@@ -31,11 +31,11 @@ public class QStatsdata extends EntityPathBase<Statsdata> {
 
     public final NumberPath<Double> cvoltage = createNumber("cvoltage", Double.class);
 
+    public final NumberPath<Integer> humidity1 = createNumber("humidity1", Integer.class);
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final NumberPath<Integer> illumination1 = createNumber("illumination1", Integer.class);
-
-    public final NumberPath<Integer> rssi1 = createNumber("rssi1", Integer.class);
 
     public final NumberPath<Integer> temperature1 = createNumber("temperature1", Integer.class);
 

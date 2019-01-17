@@ -22,11 +22,10 @@ public class StatsdataMainResponseDto implements Serializable{
     private double bcurrent;
     private double cvoltage;
     private double ccurrent;
-    private int rssi1;
-    private int temperature1;
     private int voltage1;
+    private int humidity1;
     private int illumination1;
-    
+    private int temperature1;
 
     public StatsdataMainResponseDto(Statsdata entity) {
     	id = entity.getId();
@@ -37,10 +36,10 @@ public class StatsdataMainResponseDto implements Serializable{
     	bcurrent = entity.getBcurrent();
     	cvoltage = entity.getCvoltage();
     	ccurrent = entity.getCcurrent();
-    	rssi1 = entity.getRssi1();
-    	temperature1 = entity.getTemperature1();
     	voltage1 = entity.getVoltage1();
+    	humidity1 = entity.getHumidity1();
     	illumination1 = entity.getIllumination1();
+    	temperature1 = entity.getTemperature1();
         //modifiedDate = toStringDateTime(entity.getModifiedDate());
     }
     

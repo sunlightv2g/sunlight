@@ -59,10 +59,10 @@ public class StatsdataRepositoryImpl extends QueryDslRepositorySupport implement
         				, statsdata.bcurrent
         				, statsdata.cvoltage
         				, statsdata.ccurrent
-        				, statsdata.rssi1
-        				, statsdata.temperature1
         				, statsdata.voltage1
+        				, statsdata.humidity1
         				, statsdata.illumination1
+        				, statsdata.temperature1
         				))
                 .from(statsdata)
                 .where(statsdata.userid.eq(statsdataSearchRequestDto.getUserid()))

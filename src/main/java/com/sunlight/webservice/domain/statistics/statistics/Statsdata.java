@@ -56,19 +56,19 @@ public class Statsdata implements Serializable{
     private double celectric;	// C상 전력
 */
     @Column
-    private int rssi1;	// S1 전압
+    private int voltage1;	// S1 전압
     
     @Column
-    private int temperature1;	// S1 전류
+    private int humidity1;	// S1 전류
     
     @Column
-    private int voltage1;	// S1 조도
+    private int illumination1;	// S1 조도
     
     @Column
-    private int illumination1;	// S1 온도
+    private int temperature1;	// S1 온도
     
     @Builder
-    public Statsdata(long id, String userid, double avoltage, double acurrent, double bvoltage, double bcurrent, double cvoltage, double ccurrent, int rssi1, int temperature1, int voltage1, int illumination1) {
+    public Statsdata(long id, String userid, double avoltage, double acurrent, double bvoltage, double bcurrent, double cvoltage, double ccurrent, int voltage1, int humidity1, int illumination1, int temperature1) {
     	this.id = id;
     	this.userid = userid;
     	this.avoltage = avoltage;
@@ -77,10 +77,10 @@ public class Statsdata implements Serializable{
         this.bcurrent = bcurrent;
         this.cvoltage = cvoltage;
         this.ccurrent = ccurrent;
-        this.rssi1 = rssi1;
-        this.temperature1 = temperature1;
         this.voltage1 = voltage1;
+        this.humidity1 = humidity1;
         this.illumination1 = illumination1;
+        this.temperature1 = temperature1;
     }
     
     private double getElectric(double dble, double voltage, double current) {
