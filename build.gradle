@@ -22,7 +22,7 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'io.franzbecker.gradle-lombok'
 
 group = 'com.sunlight'
-version = '0.0.5'
+version = '0.0.6'
 sourceCompatibility = 1.8
 
 repositories {
